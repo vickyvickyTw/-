@@ -96,6 +96,11 @@
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
       </button>
+      <button data-tab="money"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+        <i class="fa-solid fa-coins text-amber-500"></i>
+        匯率・記帳
+      </button>
       <button data-tab="day1"
               class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
         <span>D1</span>
@@ -315,6 +320,199 @@
         </div>
       </section>
 
+      <!-- 匯率・記帳 -->
+      <section data-panel="money" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              匯率與旅費記帳
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              自訂匯率，快速換算韓元／台幣，順手記錄這次釜山花費。
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-50 text-amber-700 text-[11px]">
+            <i class="fa-solid fa-wallet"></i>
+            Money
+          </span>
+        </div>
+
+        <!-- 匯率小工具 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5 space-y-4">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-700">
+            <i class="fa-solid fa-coins text-amber-500"></i>
+            匯率換算小工具
+          </h3>
+
+          <!-- 匯率設定 -->
+          <div class="grid sm:grid-cols-[1.2fr,1.8fr] gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-semibold text-slate-700">匯率設定</span>
+                <span class="text-[11px] text-slate-400">
+                  可依實際換匯金額自行調整
+                </span>
+              </div>
+              <label class="text-[11px] sm:text-xs text-slate-500 block">
+                每 <span class="font-semibold text-slate-700">1,000 KRW</span> 約等於幾元新台幣？
+              </label>
+              <div class="flex items-center gap-2">
+                <div class="flex items-center border rounded-lg px-2 py-1.5 flex-1 bg-slate-50">
+                  <span class="text-[11px] text-slate-500 mr-1">NT$</span>
+                  <input id="ratePerThousand"
+                         type="number" step="0.01"
+                         class="w-full bg-transparent outline-none text-right text-xs sm:text-sm"
+                         value="25" />
+                </div>
+              </div>
+              <div id="rateSummary" class="text-[11px] text-emerald-700 mt-1">
+                <!-- 動態顯示 1 KRW 約 NT$0.xxx -->
+              </div>
+            </div>
+
+            <!-- 速算小工具 -->
+            <div class="border rounded-xl p-3 space-y-3">
+              <div class="font-semibold text-slate-700 text-xs sm:text-sm">
+                快速換算
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-3">
+                <!-- KRW -> TWD -->
+                <div class="space-y-1.5">
+                  <label class="text-[11px] text-slate-500 block">
+                    韓元 → 台幣
+                  </label>
+                  <div class="flex items-center gap-2">
+                    <input id="krwInput"
+                           type="number" step="1"
+                           placeholder="例如 30000"
+                           class="w-full border rounded-lg px-2 py-1.5 text-xs sm:text-sm bg-slate-50 outline-none" />
+                    <span class="text-[11px] text-slate-500">KRW</span>
+                  </div>
+                  <div id="twdFromKrwOutput"
+                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center">
+                    <!-- 動態顯示 -->
+                  </div>
+                </div>
+
+                <!-- TWD -> KRW -->
+                <div class="space-y-1.5">
+                  <label class="text-[11px] text-slate-500 block">
+                    台幣 → 韓元
+                  </label>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] text-slate-500">NT$</span>
+                    <input id="twdInput"
+                           type="number" step="1"
+                           placeholder="例如 1000"
+                           class="w-full border rounded-lg px-2 py-1.5 text-xs sm:text-sm bg-slate-50 outline-none" />
+                  </div>
+                  <div id="krwFromTwdOutput"
+                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center">
+                    <!-- 動態顯示 -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-[11px] text-slate-400">
+                備註：此為「估算用匯率」，實際金額依銀行或刷卡帳單為準。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 簡易記帳 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5 space-y-4">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-700">
+            <i class="fa-solid fa-clipboard-list text-emerald-600"></i>
+            旅費簡易記帳
+          </h3>
+          <p class="text-[11px] sm:text-xs text-slate-500">
+            手邊花多少就記多少，幣別可以混著記。系統會用上面設定的匯率，幫你換算成台幣估算金額。  
+            （資料會存在這台裝置的瀏覽器 localStorage，關閉網頁再開還會在，但換裝置就會不見。）
+          </p>
+
+          <!-- 新增一筆支出 -->
+          <div class="border rounded-2xl p-3 sm:p-4 bg-slate-50 space-y-3 text-xs sm:text-sm">
+            <div class="font-semibold text-slate-700 text-xs sm:text-sm">
+              新增一筆支出
+            </div>
+            <div class="grid sm:grid-cols-[0.9fr,1.6fr,0.8fr,1fr,auto] gap-2 items-center">
+              <select id="expenseDay"
+                      class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs">
+                <option value="D1">D1・12/25</option>
+                <option value="D2">D2・12/26</option>
+                <option value="D3">D3・12/27</option>
+                <option value="其他">其他</option>
+              </select>
+              <input id="expenseItem"
+                     type="text"
+                     placeholder="例如：晚餐豬肉湯飯／OLIVE YOUNG"
+                     class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs" />
+              <select id="expenseCurrency"
+                      class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs">
+                <option value="KRW">KRW 韓元</option>
+                <option value="TWD">TWD 台幣</option>
+              </select>
+              <input id="expenseAmount"
+                     type="number" step="1"
+                     placeholder="金額"
+                     class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs text-right" />
+              <button id="addExpenseBtn"
+                      class="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-[11px] sm:text-xs shadow-sm hover:bg-emerald-700">
+                <i class="fa-solid fa-plus"></i>
+                新增
+              </button>
+            </div>
+            <div id="expenseError"
+                 class="text-[11px] text-rose-500 h-4 flex items-center">
+              <!-- 錯誤訊息 -->
+            </div>
+          </div>
+
+          <!-- 記帳表格 -->
+          <div class="border rounded-2xl overflow-hidden text-xs sm:text-sm">
+            <div class="bg-slate-50 px-3 sm:px-4 py-2 flex items-center justify-between">
+              <span class="font-semibold text-slate-700">本趟支出列表</span>
+              <span class="text-[11px] text-slate-400">
+                點「🗑」可刪除該筆
+              </span>
+            </div>
+            <div class="max-h-80 overflow-y-auto no-scrollbar">
+              <table class="w-full text-left text-[11px] sm:text-xs">
+                <thead class="bg-slate-100 text-slate-500 sticky top-0 z-10">
+                  <tr>
+                    <th class="px-2 sm:px-3 py-2">日期</th>
+                    <th class="px-2 sm:px-3 py-2">項目</th>
+                    <th class="px-2 sm:px-3 py-2 text-right">幣別</th>
+                    <th class="px-2 sm:px-3 py-2 text-right">金額</th>
+                    <th class="px-2 sm:px-3 py-2 text-right">台幣估算</th>
+                    <th class="px-2 sm:px-3 py-2 text-center w-10">刪除</th>
+                  </tr>
+                </thead>
+                <tbody id="expenseTableBody">
+                  <!-- 動態產生 -->
+                </tbody>
+              </table>
+            </div>
+            <div class="bg-slate-50 px-3 sm:px-4 py-2 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+              <div class="text-[11px] text-slate-600">
+                累計：  
+                <span id="totalKRW" class="font-semibold text-slate-800">KRW 0</span>
+                <span class="mx-1">｜</span>
+                <span id="totalTWD" class="font-semibold text-slate-800">NT$ 0</span>
+              </div>
+              <button id="clearExpensesBtn"
+                      class="text-[11px] text-rose-500 hover:text-rose-600 inline-flex items-center gap-1">
+                <i class="fa-solid fa-trash-can"></i>
+                全部清空（這台裝置）
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Day 1 -->
       <section data-panel="day1" class="panel hidden space-y-4 sm:space-y-5">
         <div class="flex items-center justify-between gap-2">
@@ -407,7 +605,7 @@
                   </a>
                 </li>
                 <li>
-                  <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）</span><br />
+                  <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면本점）</span><br />
                   <span class="text-[11px] text-slate-500">
                     242-1 부전제2동 Busanjin District, Busan
                   </span><br />
@@ -779,7 +977,7 @@
     </main>
 
     <footer class="mt-6 mb-4 text-center text-[11px] text-slate-400">
-      釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
+      釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航｜含匯率＆記帳小工具
     </footer>
   </div>
 
@@ -801,6 +999,24 @@
         showPanel(target);
       });
     });
-  </script>
-</body>
-</html>
+
+    // === 匯率 & 記帳功能 ===
+    const rateInput = document.getElementById('ratePerThousand');
+    const rateSummary = document.getElementById('rateSummary');
+    const krwInput = document.getElementById('krwInput');
+    const twdFromKrwOutput = document.getElementById('twdFromKrwOutput');
+    const twdInput = document.getElementById('twdInput');
+    const krwFromTwdOutput = document.getElementById('krwFromTwdOutput');
+
+    const expenseDay = document.getElementById('expenseDay');
+    const expenseItem = document.getElementById('expenseItem');
+    const expenseCurrency = document.getElementById('expenseCurrency');
+    const expenseAmount = document.getElementById('expenseAmount');
+    const addExpenseBtn = document.getElementById('addExpenseBtn');
+    const expenseError = document.getElementById('expenseError');
+    const expenseTableBody = document.getElementById('expenseTableBody');
+    const totalKRW = document.getElementById('totalKRW');
+    const totalTWD = document.getElementById('totalTWD');
+    const clearExpensesBtn = document.getElementById('clearExpensesBtn');
+
+    c
