@@ -11,7 +11,6 @@
   <!-- Font Awesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-S+8uG2G4xTqZP4pGPI8V8OQX1Ww7JX0q6q5NVvVY+7oF7i+Q1q8f7Hq4e3U1vVxH8aE3+0evgXWwq9Y+YkXK5Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
@@ -91,28 +90,28 @@
     <!-- Tabs -->
     <nav
       class="flex gap-2 overflow-x-auto no-scrollbar sticky top-0 z-20 bg-slate-100/95 backdrop-blur px-1 pb-2 pt-1 border-b border-slate-200">
-      <button data-tab="overview"
-              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white shadow-sm">
+      <button type="button" data-tab="overview"
+              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white shadow-sm cursor-pointer">
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
       </button>
-      <button data-tab="money"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+      <button type="button" data-tab="money"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <i class="fa-solid fa-coins text-amber-500"></i>
         匯率・記帳
       </button>
-      <button data-tab="day1"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+      <button type="button" data-tab="day1"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D1</span>
         <span class="hidden sm:inline">12/25</span>
       </button>
-      <button data-tab="day2"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+      <button type="button" data-tab="day2"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D2</span>
         <span class="hidden sm:inline">12/26</span>
       </button>
-      <button data-tab="day3"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+      <button type="button" data-tab="day3"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D3</span>
         <span class="hidden sm:inline">12/27</span>
       </button>
@@ -322,7 +321,7 @@
 
       <!-- 匯率・記帳 -->
       <section data-panel="money" class="panel hidden space-y-4 sm:space-y-5">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center justify_between gap-2">
           <div>
             <h2 class="text-sm sm:text-base font-semibold text-slate-800">
               匯率與旅費記帳
@@ -345,7 +344,6 @@
             匯率換算小工具
           </h3>
 
-          <!-- 匯率設定 -->
           <div class="grid sm:grid-cols-[1.2fr,1.8fr] gap-3 text-xs sm:text-sm">
             <div class="border rounded-xl p-3 space-y-2">
               <div class="flex items-center justify-between gap-2">
@@ -366,12 +364,10 @@
                          value="25" />
                 </div>
               </div>
-              <div id="rateSummary" class="text-[11px] text-emerald-700 mt-1">
-                <!-- 動態顯示 1 KRW 約 NT$0.xxx -->
-              </div>
+              <div id="rateSummary" class="text-[11px] text-emerald-700 mt-1"></div>
             </div>
 
-            <!-- 速算小工具 -->
+            <!-- 速算 -->
             <div class="border rounded-xl p-3 space-y-3">
               <div class="font-semibold text-slate-700 text-xs sm:text-sm">
                 快速換算
@@ -391,9 +387,7 @@
                     <span class="text-[11px] text-slate-500">KRW</span>
                   </div>
                   <div id="twdFromKrwOutput"
-                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center">
-                    <!-- 動態顯示 -->
-                  </div>
+                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center"></div>
                 </div>
 
                 <!-- TWD -> KRW -->
@@ -409,9 +403,7 @@
                            class="w-full border rounded-lg px-2 py-1.5 text-xs sm:text-sm bg-slate-50 outline-none" />
                   </div>
                   <div id="krwFromTwdOutput"
-                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center">
-                    <!-- 動態顯示 -->
-                  </div>
+                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center"></div>
                 </div>
               </div>
 
@@ -430,7 +422,7 @@
           </h3>
           <p class="text-[11px] sm:text-xs text-slate-500">
             手邊花多少就記多少，幣別可以混著記。系統會用上面設定的匯率，幫你換算成台幣估算金額。  
-            （資料會存在這台裝置的瀏覽器 localStorage，關閉網頁再開還會在，但換裝置就會不見。）
+            （會儲存在這台裝置的瀏覽器，如果換電腦或清除瀏覽資料就會被清掉。）
           </p>
 
           <!-- 新增一筆支出 -->
@@ -460,15 +452,14 @@
                      placeholder="金額"
                      class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs text-right" />
               <button id="addExpenseBtn"
+                      type="button"
                       class="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-[11px] sm:text-xs shadow-sm hover:bg-emerald-700">
                 <i class="fa-solid fa-plus"></i>
                 新增
               </button>
             </div>
             <div id="expenseError"
-                 class="text-[11px] text-rose-500 h-4 flex items-center">
-              <!-- 錯誤訊息 -->
-            </div>
+                 class="text-[11px] text-rose-500 h-4 flex items-center"></div>
           </div>
 
           <!-- 記帳表格 -->
@@ -491,9 +482,7 @@
                     <th class="px-2 sm:px-3 py-2 text-center w-10">刪除</th>
                   </tr>
                 </thead>
-                <tbody id="expenseTableBody">
-                  <!-- 動態產生 -->
-                </tbody>
+                <tbody id="expenseTableBody"></tbody>
               </table>
             </div>
             <div class="bg-slate-50 px-3 sm:px-4 py-2 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
@@ -504,6 +493,7 @@
                 <span id="totalTWD" class="font-semibold text-slate-800">NT$ 0</span>
               </div>
               <button id="clearExpensesBtn"
+                      type="button"
                       class="text-[11px] text-rose-500 hover:text-rose-600 inline-flex items-center gap-1">
                 <i class="fa-solid fa-trash-can"></i>
                 全部清空（這台裝置）
@@ -605,7 +595,7 @@
                   </a>
                 </li>
                 <li>
-                  <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면本점）</span><br />
+                  <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）</span><br />
                   <span class="text-[11px] text-slate-500">
                     242-1 부전제2동 Busanjin District, Busan
                   </span><br />
@@ -786,7 +776,7 @@
           </div>
 
           <!-- Lunch / rest -->
-          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:px-4">
             <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
               13:00
             </div>
@@ -802,7 +792,7 @@
           </div>
 
           <!-- Soft shopping -->
-          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:px-4">
             <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
               下午<br />～晚上
             </div>
@@ -844,7 +834,7 @@
                 </li>
               </ul>
               <div class="mt-2 text-[11px] text-slate-500">
-                若臉部泛紅明顯，就以「飯店休息＋便利商店簡單補給」為主，逛街可以順延到 D3。
+                若臉部泛紅明顯，就以「飯店休息＋方便商店簡單補給」為主，逛街可以順延到 D3。
               </div>
             </div>
           </div>
@@ -982,6 +972,7 @@
   </div>
 
   <script>
+    // ---- TAB 切換 ----
     const tabButtons = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.panel');
 
@@ -999,6 +990,27 @@
         showPanel(target);
       });
     });
+
+    // 起始顯示「總覽」
+    showPanel('overview');
+
+    // ---- safe localStorage ----
+    function safeGetItem(key) {
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          return window.localStorage.getItem(key);
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    function safeSetItem(key, value) {
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          window.localStorage.setItem(key, value);
+        }
+      } catch (e) {}
+    }
 
     // === 匯率 & 記帳功能 ===
     const rateInput = document.getElementById('ratePerThousand');
@@ -1019,4 +1031,211 @@
     const totalTWD = document.getElementById('totalTWD');
     const clearExpensesBtn = document.getElementById('clearExpensesBtn');
 
-    c
+    const STORAGE_KEY_EXPENSES = 'busanTripExpensesV1';
+    const STORAGE_KEY_RATE = 'busanTripRatePerThousand';
+
+    let expenses = [];
+
+    function loadRate() {
+      const storedRate = safeGetItem(STORAGE_KEY_RATE);
+      if (storedRate && !isNaN(parseFloat(storedRate))) {
+        rateInput.value = storedRate;
+      }
+    }
+
+    function getRatePerThousand() {
+      const v = parseFloat(rateInput.value);
+      return isNaN(v) || v <= 0 ? 25 : v;
+    }
+
+    function updateRateSummary() {
+      const rate = getRatePerThousand();
+      const perOne = rate / 1000;
+      rateSummary.textContent =
+        `目前設定：1,000 KRW ≈ NT$ ${rate.toFixed(2)}（1 KRW ≈ NT$ ${perOne.toFixed(4)}）`;
+    }
+
+    function krwToTwd(krw) {
+      const rate = getRatePerThousand();
+      return krw / 1000 * rate;
+    }
+
+    function twdToKrw(twd) {
+      const rate = getRatePerThousand();
+      return rate === 0 ? 0 : twd / rate * 1000;
+    }
+
+    function updateConverters() {
+      const krwVal = parseFloat(krwInput.value);
+      if (!isNaN(krwVal) && krwVal > 0) {
+        const twd = krwToTwd(krwVal);
+        twdFromKrwOutput.textContent = `約 NT$ ${twd.toFixed(0)} 元`;
+      } else {
+        twdFromKrwOutput.textContent = '';
+      }
+
+      const twdVal = parseFloat(twdInput.value);
+      if (!isNaN(twdVal) && twdVal > 0) {
+        const krw = twdToKrw(twdVal);
+        krwFromTwdOutput.textContent = `約 ₩ ${krw.toFixed(0)} KRW`;
+      } else {
+        krwFromTwdOutput.textContent = '';
+      }
+    }
+
+    function loadExpenses() {
+      const raw = safeGetItem(STORAGE_KEY_EXPENSES);
+      if (!raw) return;
+      try {
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) {
+          expenses = arr;
+        }
+      } catch (e) {
+        console.warn('load expenses error', e);
+      }
+    }
+
+    function saveExpenses() {
+      safeSetItem(STORAGE_KEY_EXPENSES, JSON.stringify(expenses));
+    }
+
+    function renderExpenses() {
+      if (!expenseTableBody) return;
+      expenseTableBody.innerHTML = '';
+      let sumKRW = 0;
+      let sumTWDVal = 0;
+
+      expenses.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'border-b border-slate-100';
+
+        const tdDay = document.createElement('td');
+        tdDay.className = 'px-2 sm:px-3 py-1.5 align-top';
+        tdDay.textContent = item.day;
+
+        const tdItem = document.createElement('td');
+        tdItem.className = 'px-2 sm:px-3 py-1.5 align-top';
+        tdItem.textContent = item.name || '';
+
+        const tdCurrency = document.createElement('td');
+        tdCurrency.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
+        tdCurrency.textContent = item.currency;
+
+        const tdAmount = document.createElement('td');
+        tdAmount.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
+        tdAmount.textContent = item.amount.toLocaleString();
+
+        const tdTwd = document.createElement('td');
+        tdTwd.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
+        let twdVal = 0;
+        if (item.currency === 'TWD') {
+          twdVal = item.amount;
+          sumTWDVal += item.amount;
+        } else {
+          twdVal = krwToTwd(item.amount);
+          sumKRW += item.amount;
+          sumTWDVal += twdVal;
+        }
+        tdTwd.textContent = `NT$ ${twdVal.toFixed(0)}`;
+
+        const tdDelete = document.createElement('td');
+        tdDelete.className = 'px-2 sm:px-3 py-1.5 text-center align-top';
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'text-rose-500 hover:text-rose-600';
+        delBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+        delBtn.addEventListener('click', () => {
+          expenses = expenses.filter(e => e.id !== item.id);
+          saveExpenses();
+          renderExpenses();
+        });
+        tdDelete.appendChild(delBtn);
+
+        tr.appendChild(tdDay);
+        tr.appendChild(tdItem);
+        tr.appendChild(tdCurrency);
+        tr.appendChild(tdAmount);
+        tr.appendChild(tdTwd);
+        tr.appendChild(tdDelete);
+
+        expenseTableBody.appendChild(tr);
+      });
+
+      if (totalKRW) totalKRW.textContent = `KRW ${sumKRW.toLocaleString()}`;
+      if (totalTWD) totalTWD.textContent = `NT$ ${sumTWDVal.toFixed(0)}`;
+    }
+
+    // 初始化
+    if (rateInput) {
+      loadRate();
+      updateRateSummary();
+      if (krwInput && twdInput) updateConverters();
+
+      rateInput.addEventListener('input', () => {
+        const rate = getRatePerThousand();
+        safeSetItem(STORAGE_KEY_RATE, rate.toString());
+        updateRateSummary();
+        if (krwInput && twdInput) {
+          updateConverters();
+          renderExpenses();
+        }
+      });
+    }
+
+    if (krwInput) {
+      krwInput.addEventListener('input', updateConverters);
+    }
+    if (twdInput) {
+      twdInput.addEventListener('input', updateConverters);
+    }
+
+    loadExpenses();
+    renderExpenses();
+
+    if (addExpenseBtn) {
+      addExpenseBtn.addEventListener('click', () => {
+        if (!expenseError) return;
+        expenseError.textContent = '';
+
+        const day = expenseDay.value || '其他';
+        const name = (expenseItem.value || '').trim();
+        const currency = expenseCurrency.value || 'KRW';
+        const amount = parseFloat(expenseAmount.value);
+
+        if (!name) {
+          expenseError.textContent = '請輸入「項目」。';
+          return;
+        }
+        if (isNaN(amount) || amount <= 0) {
+          expenseError.textContent = '請輸入正確的「金額」。';
+          return;
+        }
+
+        const newItem = {
+          id: Date.now() + '_' + Math.random().toString(16).slice(2),
+          day,
+          name,
+          currency,
+          amount
+        };
+        expenses.push(newItem);
+        saveExpenses();
+        renderExpenses();
+
+        expenseItem.value = '';
+        expenseAmount.value = '';
+      });
+    }
+
+    if (clearExpensesBtn) {
+      clearExpensesBtn.addEventListener('click', () => {
+        if (!confirm('確定要清空這台裝置上的記帳紀錄嗎？')) return;
+        expenses = [];
+        saveExpenses();
+        renderExpenses();
+      });
+    }
+  </script>
+</body>
+</html>
