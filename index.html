@@ -2,156 +2,805 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>釜山醫美之旅 Planner</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-S+8uG2G4xTqZP4pGPI8V8OQX1Ww7JX0q6q5NVvVY+7oF7i+Q1q8f7Hq4e3U1vVxH8aE3+0evgXWwq9Y+YkXK5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .tab-active {
+      background: linear-gradient(to right, #0f766e, #16a34a);
+      color: #fff;
+      border-color: transparent;
+    }
+  </style>
 </head>
 <body class="bg-slate-100 text-slate-900">
-  <div class="min-h-screen max-w-3xl mx-auto px-4 py-6">
+  <div class="min-h-screen max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
     <!-- Header -->
-    <header class="mb-6">
-      <h1 class="text-2xl font-bold tracking-tight mb-1">釜山醫美之旅</h1>
-      <p class="text-sm text-slate-500">行程總覽 ＋ 一鍵開啟 NAVER MAP 導航</p>
+    <header class="mb-4 sm:mb-6">
+      <div
+        class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-700 via-teal-600 to-sky-600 text-white p-4 sm:p-6 shadow-lg">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight mb-1">
+              釜山醫美之旅 Planner
+            </h1>
+            <p class="text-xs sm:text-sm text-emerald-100">
+              2025.12.25 – 12.27｜西面住宿＋JRYN 醫美＋一日遊
+            </p>
+          </div>
+          <div class="text-right text-xs sm:text-sm">
+            <div class="flex items-center justify-end gap-1">
+              <i class="fa-solid fa-location-dot text-lime-200"></i>
+              <span class="font-semibold">Busan · 西面</span>
+            </div>
+            <div class="text-emerald-100 text-[11px] sm:text-xs mt-1">
+              主要景點一鍵開啟 NAVER MAP 導航
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-3 gap-2 text-[11px] sm:text-xs">
+          <div class="bg-white/10 rounded-xl px-3 py-2">
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-plane-arrival text-lime-200"></i>
+              <span class="font-semibold">去程</span>
+            </div>
+            <div>BX794 桃園 → 釜山</div>
+            <div class="text-emerald-100">13:25 → 17:00</div>
+          </div>
+          <div class="bg-white/10 rounded-xl px-3 py-2">
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-hotel text-lime-200"></i>
+              <span class="font-semibold">住宿</span>
+            </div>
+            <a href="https://map.naver.com/p/search/K-게스트하우스%20서면1호점"
+               target="_blank" rel="noopener noreferrer"
+               class="underline underline-offset-2">
+              西面 K 旅館
+            </a>
+            <div class="text-emerald-100">K-Guesthouse Seomyeon 1</div>
+          </div>
+          <div class="bg-white/10 rounded-xl px-3 py-2">
+            <div class="flex items-center gap-2 mb-1">
+              <i class="fa-solid fa-plane-departure text-lime-200"></i>
+              <span class="font-semibold">回程</span>
+            </div>
+            <div>IT607 釜山 → 桃園</div>
+            <div class="text-emerald-100">21:00 → 22:30</div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- Day 1：12/25 -->
-    <section class="mb-6">
-      <div class="flex items-center justify-between mb-2">
-        <h2 class="text-xl font-semibold">Day 1｜12/25 抵達釜山 & 入住西面</h2>
-        <span class="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700">
-          已排好
-        </span>
-      </div>
+    <!-- Tabs -->
+    <nav
+      class="flex gap-2 overflow-x-auto no-scrollbar sticky top-0 z-20 bg-slate-100/95 backdrop-blur px-1 pb-2 pt-1 border-b border-slate-200">
+      <button data-tab="overview"
+              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white shadow-sm">
+        <i class="fa-solid fa-list-check text-emerald-600"></i>
+        總覽
+      </button>
+      <button data-tab="day1"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+        <span>D1</span>
+        <span class="hidden sm:inline">12/25</span>
+      </button>
+      <button data-tab="day2"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+        <span>D2</span>
+        <span class="hidden sm:inline">12/26</span>
+      </button>
+      <button data-tab="day3"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white">
+        <span>D3</span>
+        <span class="hidden sm:inline">12/27</span>
+      </button>
+    </nav>
 
-      <div class="space-y-3">
-        <!-- Flight -->
-        <div class="bg-white rounded-xl shadow-sm p-4">
-          <div class="text-xs font-semibold text-slate-500 mb-1">去程航班</div>
-          <div class="text-sm">
-            釜山航空 BX794｜經濟艙<br>
-            桃園 13:25 出發 → 預計 17:00 抵達
-            <a href="https://map.naver.com/p/search/%EA%B8%88%ED%95%B4%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD" target="_blank" rel="noopener noreferrer" class="ml-1 text-emerald-600 underline">
-              金海國際機場（NAVER MAP）
-            </a>
+    <main class="mt-3 sm:mt-4 space-y-4 sm:space-y-6">
+      <!-- 總覽 -->
+      <section data-panel="overview" class="panel space-y-4 sm:space-y-5">
+        <!-- 航班 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
+            <i class="fa-solid fa-plane text-emerald-600"></i>
+            航班資訊
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3">
+              <div class="font-semibold mb-1">去程｜12/25（四）</div>
+              <div>釜山航空 BX794｜經濟艙</div>
+              <div class="mt-1">
+                桃園 TPE 13:25 出發<br />
+                釜山
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-600 underline">
+                  金海國際機場
+                </a>
+                17:00 抵達
+              </div>
+            </div>
+            <div class="border rounded-xl p-3">
+              <div class="font-semibold mb-1">回程｜12/27（六）</div>
+              <div>臺灣虎航 IT607</div>
+              <div class="mt-1">
+                釜山
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-600 underline">
+                  金海國際機場
+                </a>
+                21:00 出發<br />
+                桃園 T1 22:30 抵達
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Hotel -->
-        <div class="bg-white rounded-xl shadow-sm p-4">
-          <div class="text-xs font-semibold text-slate-500 mb-1">住宿</div>
-          <div class="text-sm">
-            飯店：
-            <a href="https://naver.me/GFe19oz4" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline">
-              西面 K 旅館（K Guesthouse Seomyeon 1）
-            </a><br>
-            地址：44 Sincheon-daero 62beon-gil, 釜山鎮區, 47289 釜山, 韓國
-          </div>
-          <p class="mt-2 text-xs text-slate-500">
-            建議：落地後搭計程車到飯店，行李放好再出去吃晚餐＋逛街。
-          </p>
-        </div>
-
-        <!-- Dinner options -->
-        <div class="bg-white rounded-xl shadow-sm p-4">
-          <div class="text-xs font-semibold text-slate-500 mb-2">晚餐選擇（西面一帶）</div>
-          <ol class="list-decimal pl-4 space-y-2 text-sm">
-            <li>
-              <span>西面辣炒年糕一條街</span><br>
-              <span class="text-xs text-slate-500">242-7 부전제2동 Busanjin District, Busan, 南韓</span><br>
-              <a href="https://map.naver.com/p/search/%EC%84%9C%EB%A9%B4%20%EB%96%A1%EB%B3%B6%EC%9D%B4%20%EA%B3%A8%EB%AA%A9" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                在 NAVER MAP 搜尋「서면 떡볶이 골목」
+        <!-- 住宿 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
+            <i class="fa-solid fa-bed text-emerald-600"></i>
+            住宿資訊
+          </h2>
+          <div class="text-xs sm:text-sm">
+            <div class="font-semibold">
+              <a href="https://map.naver.com/p/search/K-게스트하우스%20서면1호점"
+                 target="_blank" rel="noopener noreferrer"
+                 class="text-emerald-700 underline">
+                西面 K 旅館（K-Guesthouse Seomyeon 1）
               </a>
-            </li>
-
-            <li>
-              <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）</span><br>
-              <span class="text-xs text-slate-500">地址：부산 부산진구 서면로68번길 38</span><br>
-              <a href="https://naver.me/xHmfNtQA" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                NAVER MAP 導航
-              </a>
-            </li>
-
-            <li>
-              <span>浦項豬肉湯飯（포항돼지국밥）</span><br>
-              <span class="text-xs text-slate-500">地址：27 Seomyeon-ro 68beon-gil, Busanjin District, Busan</span><br>
-              <a href="https://naver.me/xiv5ZxMD" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                NAVER MAP 導航
-              </a>
-            </li>
-
-            <li>
-              <span>水營本家 豬肉湯飯（수영본가 돼지국밥）</span><br>
-              <span class="text-xs text-slate-500">地址：25 Seomyeon-ro 68beon-gil, Busanjin District, Busan</span><br>
-              <a href="https://naver.me/5MV8eU6g" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                NAVER MAP 導航
-              </a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- Medical Clinics -->
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">醫美 & 皮膚科診所</h2>
-      <div class="space-y-3">
-
-        <!-- JRAM -->
-        <div class="bg-white rounded-xl shadow-sm p-4">
-          <div class="text-xs font-semibold text-slate-500 mb-1">醫美診所</div>
-          <div class="text-sm">
-            <span>JRAM 醫美診所（JRAM Plastic Surgery／성형외과）</span><br>
-            <span class="text-xs text-slate-500">（實際地址請依預約單為主）</span><br>
-            <a href="https://map.naver.com/p/search/JRAM%20%EC%84%B1%ED%98%95%EC%99%B8%EA%B3%BC" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-              在 NAVER MAP 搜尋 JRAM 성형외과
-            </a>
+            </div>
+            <div>地址：44 Sincheon-daero 62beon-gil, 釜山鎮區, 47289 釜山, 韓國</div>
+            <div class="mt-1 text-slate-500">
+              建議：抵達後直接從金海機場搭計程車前往，行李放好再開始吃飯＋逛街。
+            </div>
           </div>
         </div>
 
-        <!-- Floria -->
-        <div class="bg-white rounded-xl shadow-sm p-4">
-          <div class="text-xs font-semibold text-slate-500 mb-1">皮膚科診所</div>
-          <div class="text-sm">
-            <span>釜山佛洛麗皮膚科（Floria Clinic／플로리아의원）</span><br>
-            <span class="text-xs text-slate-500">
-              地址：부산 부산진구 중앙대로 664, 이랜드 PEER 서면 2층
-            </span><br>
-            <a href="https://map.naver.com/p/search/%ED%94%8C%EB%A1%9C%EB%A6%AC%EC%95%84%EC%9D%98%EC%9B%90%20%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-              在 NAVER MAP 搜尋 플로리아의원 부산서면
-            </a>
+        <!-- 重點餐廳 / 逛街點一覽 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
+            <i class="fa-solid fa-location-dot text-emerald-600"></i>
+            重要地點總表（點名稱可開 NAVER MAP）
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 space-y-1.5">
+              <div class="font-semibold text-slate-700 mb-1">美食・晚餐選擇</div>
+              <ul class="space-y-1">
+                <li>
+                  <a href="https://map.naver.com/p/search/서면%20떡볶이%20골목"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    西面辣炒年糕一條街（서면 떡볶이 골목）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/소문난돼지국밥%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/포항돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    浦項豬肉湯飯（포항돼지국밥）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/수영본가%20돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    水營本家 豬肉湯飯（수영본가 돼지국밥）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/산장1988%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    山莊1988（산장1988 서면본점）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/홍콩반점0410%20부산서면롯데점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    香港飯店 0410 釜山西面樂天店（홍콩반점0410 부산서면롯데점）
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="border rounded-xl p-3 space-y-1.5">
+              <div class="font-semibold text-slate-700 mb-1">逛街・市集・咖啡街</div>
+              <ul class="space-y-1">
+                <li>
+                  <a href="https://map.naver.com/p/search/서면%20지하도상가"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    西面地下道街・西面Mall（서면 지하도상가）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    釜山樂天百貨 釜山總店（롯데백화점 부산본점）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    OLIVE YOUNG 西面 Town 店（올리브영 서면타운점）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/전포카페거리"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    田浦咖啡街（전포카페거리）
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/NC백화점%20서면점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    西面 NC 百貨（NC백화점 서면점）
+                  </a>
+                  <span class="text-[11px] text-slate-500">
+                    週末市集 Market with Art Artist (MAA) 從這裡一路到田浦咖啡街
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Shopping / Olive Young -->
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">購物 & Olive Young</h2>
-      <div class="bg-white rounded-xl shadow-sm p-4">
-        <div class="text-xs font-semibold text-slate-500 mb-1">Olive Young 西面一帶</div>
-        <div class="text-sm space-y-2">
-          <p class="text-sm">
-            主要逛街可鎖定西面站周邊的 Olive Young，大多集中在地鐵出口附近與中央大路、伽倻大路周邊。
-          </p>
-          <ul class="list-disc pl-4 text-sm space-y-1">
-            <li>
-              <span>Olive Young 서면부전중앙점（Seomyeon Bujeon Jungang）</span><br>
-              <a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%20%EC%84%9C%EB%A9%B4%EB%B6%80%EC%A0%84%EC%A4%91%EC%95%99%EC%A0%90" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                NAVER MAP 搜尋「올리브영 서면부전중앙점」
-              </a>
-            </li>
-            <li>
-              <span>Olive Young 서면가야대로점（Seomyeon Gaya-daero）</span><br>
-              <a href="https://map.naver.com/p/search/%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%81%20%EC%84%9C%EB%A9%B4%EA%B0%80%EC%95%BC%EB%8C%80%EB%A1%9C%EC%A0%90" target="_blank" rel="noopener noreferrer" class="text-emerald-600 underline text-xs">
-                NAVER MAP 搜尋「올리브영 서면가야대로점」
-              </a>
-            </li>
-          </ul>
+        <!-- 醫美・一日遊 -->
+        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
+            <i class="fa-solid fa-hospital-user text-emerald-600"></i>
+            醫美與行程重點
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3">
+              <div class="font-semibold mb-1">12/26（五）醫美</div>
+              <div>
+                11:00 醫美預約：
+                <a href="https://map.naver.com/p/search/JRYN%20의원%20서면"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  釜山 JRYN
+                </a>
+              </div>
+              <div class="mt-1 text-slate-500">
+                術後建議安排室內行程為主（西面逛街、咖啡廳），避免大太陽與大量流汗。
+              </div>
+            </div>
+            <div class="border rounded-xl p-3">
+              <div class="font-semibold mb-1">12/27（六）一日遊</div>
+              <div>
+                Agoda 一日遊套裝：藍線公園 海岸列車 & 天空膠囊列車＋海東龍宮寺＋甘川文化村＋白淺海岸村
+              </div>
+              <div class="mt-1">
+                08:40 集合：
+                <a href="https://map.naver.com/p/search/서면역%2012번%20출구"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面站 12 號出口
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <!-- Day 1 -->
+      <section data-panel="day1" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 1・12/25（四）抵達釜山 & 西面吃喝逛街
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              桃園出發 → 金海機場 → 西面 K 旅館 → 晚餐豬肉湯飯 or 馬鈴薯排骨湯 → 地下街 & 樂天百貨
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px]">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            抵達日
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Flight -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              13:25<br />→ 17:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-plane-arrival text-emerald-600"></i>
+                桃園 → 釜山（金海機場）
+              </div>
+              <div class="mt-1">
+                釜山航空 BX794｜桃園 TPE 13:25 起飛 →
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  金海國際機場
+                </a>
+                17:00 抵達。
+              </div>
+              <div class="mt-1 text-slate-500">
+                下機後：依狀況可先在機場簡單補妝、防曬，再搭計程車直奔飯店。
+              </div>
+            </div>
+          </div>
+
+          <!-- Taxi & Hotel -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              約 17:30<br />→ 18:30
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-taxi text-emerald-600"></i>
+                計程車到飯店 & Check-in
+              </div>
+              <div class="mt-1">
+                住宿：
+                <a href="https://map.naver.com/p/search/K-게스트하우스%20서면1호점"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面 K 旅館（K-Guesthouse Seomyeon 1）
+                </a>
+              </div>
+              <div>地址：44 Sincheon-daero 62beon-gil, 釜山鎮區, 47289 釜山, 韓國</div>
+              <div class="mt-1 text-slate-500">
+                行李放好、稍微盥洗休息，晚上再出門覓食＋逛街。
+              </div>
+            </div>
+          </div>
+
+          <!-- Dinner options -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              晚餐
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-bowl-rice text-emerald-600"></i>
+                晚餐選擇（都在西面一帶）
+              </div>
+              <ol class="mt-2 list-decimal pl-4 space-y-1.5">
+                <li>
+                  <span>西面辣炒年糕一條街</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    242-7 부전제2동 Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/서면%20떡볶이%20골목"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP：서면 떡볶이 골목
+                  </a>
+                </li>
+                <li>
+                  <span>傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    242-1 부전제2동 Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/소문난돼지국밥%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>浦項豬肉湯飯（포항돼지국밥）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    27 Seomyeon-ro 68beon-gil, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/포항돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>水營本家 豬肉湯飯（수영본가 돼지국밥）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    25 Seomyeon-ro 68beon-gil, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/수영본가%20돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>山莊1988（산장1988 서면본점｜梅花肉＋豬皮）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    97-6 Dongcheon-ro, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/산장1988%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>香港飯店 0410 - 白種元炸醬麵（홍콩반점0410 부산서면롯데점）</span><br />
+                  <a href="https://map.naver.com/p/search/홍콩반점0410%20부산서면롯데점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Shopping / walking -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              晚上<br />逛街
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
+                西面逛街 & 咖啡街
+              </div>
+              <ol class="mt-2 list-decimal pl-4 space-y-1.5">
+                <li>
+                  <span>西面地下道街 - 西面Mall（商店街）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    지하 717 Jungang-daero, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/서면%20지하도상가"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP：서면 지하도상가
+                  </a>
+                </li>
+                <li>
+                  <span>釜山樂天百貨 釜山總店（롯데백화점 부산본점）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    772 Gaya-daero, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>OLIVE YOUNG 西面 Town 店（올리브영 서면타운점）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    2F, 중앙대로 704-1, 동보미디어, 1F, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>田浦咖啡街（Jeonpo Cafe Street｜전포카페거리）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    Dongcheon-ro 92, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/전포카페거리"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+              </ol>
+              <div class="mt-2 text-[11px] text-slate-500">
+                週五～週日中午 12:00～18:00，西面 NC 百貨一路到田浦咖啡街口有
+                Market with Art Artist (MAA) 週末市集，可視日期順路逛。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Day 2 -->
+      <section data-panel="day2" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 2・12/26（五）JRYN 醫美日
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              早午餐 → 11:00 JRYN 醫美 → 下午休息・西面室內逛街
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-rose-50 text-rose-700 text-[11px]">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            醫美重點日
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Morning / before clinic -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              上午
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-mug-saucer text-emerald-600"></i>
+                早餐／早午餐 & 前往診所
+              </div>
+              <div class="mt-1 text-slate-500">
+                依皮膚狀況選擇附近簡單吃早餐，不要太油太辣，保留時間前往 JRYN。
+              </div>
+            </div>
+          </div>
+
+          <!-- JRYN clinic -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              11:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-hospital-user text-emerald-600"></i>
+                醫美預約：釜山 JRYN
+              </div>
+              <div class="mt-1">
+                11:00 至
+                <a href="https://map.naver.com/p/search/JRYN%20의원%20서면"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  JRYN 醫美（JRYN의원 서면）
+                </a>
+                報到，依預約內容進行治療。
+              </div>
+              <div class="mt-1 text-slate-500">
+                記得主動告知：已做過的醫美項目、皮膚偏熟齡混合＋容易敏感，請醫師以「溫和控能量、以修復為主」調整。
+              </div>
+            </div>
+          </div>
+
+          <!-- Lunch / rest -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              13:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-utensils text-emerald-600"></i>
+                午餐 & 術後休息
+              </div>
+              <div class="mt-1 text-slate-500">
+                在診所附近找清淡餐點（避免酒、太辣、太燙），餐後可直接回飯店或附近咖啡廳休息，讓皮膚降溫。
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft shopping -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              下午<br />～晚上
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-store text-emerald-600"></i>
+                西面室內逛街・咖啡廳
+              </div>
+              <div class="mt-1">
+                以室內為主，例如：
+              </div>
+              <ul class="mt-1 list-disc pl-4 space-y-1">
+                <li>
+                  西面地下街・西面Mall（
+                  <a href="https://map.naver.com/p/search/서면%20지하도상가"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+                <li>
+                  樂天百貨 釜山總店（
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+                <li>
+                  OLIVE YOUNG 西面 Town 店 補貨術後保養品（
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+              </ul>
+              <div class="mt-2 text-[11px] text-slate-500">
+                若臉部泛紅明顯，就以「飯店休息＋便利商店簡單補給」為主，逛街可以順延到 D3。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Day 3 -->
+      <section data-panel="day3" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 3・12/27（六）一日遊 & 回程
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              Agoda 釜山精華景點一日遊 → 回飯店拿行李 → 金海機場 → 桃園
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-sky-50 text-sky-700 text-[11px]">
+            <i class="fa-solid fa-train-subway"></i>
+            一日遊＋返台
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Meet up -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              08:40<br />集合
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-people-group text-emerald-600"></i>
+                Agoda 一日遊集合
+              </div>
+              <div class="mt-1">
+                釜山精華景點一日遊｜藍線公園 海岸列車 & 天空膠囊列車＋海東龍宮寺＋甘川文化村＋白淺海岸村。
+              </div>
+              <div class="mt-1">
+                上車地點：
+                <a href="https://map.naver.com/p/search/서면역%2012번%20출구"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面站 12 號出口
+                </a>
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                建議提前 10～15 分鐘到，避免在地鐵口找來找去。
+              </div>
+            </div>
+          </div>
+
+          <!-- Day tour running -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              09:00<br />～ 下午
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-mountain-sun text-emerald-600"></i>
+                一日遊行程進行中
+              </div>
+              <div class="mt-1 text-slate-500">
+                依旅行社安排停靠幾個主要景點（實際順序以當日導遊說明為主）：
+              </div>
+              <ul class="mt-1 list-disc pl-4 space-y-1">
+                <li>海東龍宮寺</li>
+                <li>藍線公園 海岸列車 & 天空膠囊列車</li>
+                <li>甘川文化村</li>
+                <li>白淺海岸村 等</li>
+              </ul>
+              <div class="mt-2 text-[11px] text-slate-500">
+                建議攜帶：口罩、防曬、護唇膏、小條修復霜、折疊傘／帽子。  
+                若前一天醫美能量較高，這天記得多補防曬＋保濕。
+              </div>
+            </div>
+          </div>
+
+          <!-- Back to hotel -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              下午<br />～ 傍晚
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-suitcase text-emerald-600"></i>
+                回西面拿行李 & 簡單梳洗
+              </div>
+              <div class="mt-1 text-slate-500">
+                一日遊結束後回到西面，回
+                <a href="https://map.naver.com/p/search/K-게스트하우스%20서면1호점"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面 K 旅館
+                </a>
+                拿行李、簡單梳洗與換裝，準備前往機場。
+              </div>
+            </div>
+          </div>
+
+          <!-- Airport & return -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              18:30<br />之後
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-plane-departure text-emerald-600"></i>
+                前往金海機場 & 回程
+              </div>
+              <div class="mt-1">
+                建議 18:30～19:00 間出發前往
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  金海國際機場
+                </a>
+                ，預留交通＋辦理登機時間。
+              </div>
+              <div class="mt-1">
+                回程航班：臺灣虎航 IT607｜金海 21:00 → 桃園 T1 22:30
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                機場可再補一次保濕＋護唇，回台後連接「術後修復保養」模式。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-6 mb-4 text-center text-[11px] text-slate-400">
+      釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
+    </footer>
   </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.panel');
+
+    function showPanel(name) {
+      panels.forEach(p => {
+        p.classList.toggle('hidden', p.dataset.panel !== name);
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabButtons.forEach(b => b.classList.remove('tab-active'));
+        btn.classList.add('tab-active');
+        showPanel(target);
+      });
+    });
+  </script>
 </body>
 </html>
-
