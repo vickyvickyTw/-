@@ -25,6 +25,11 @@
       background: linear-gradient(to right, #0f766e, #16a34a);
       color: #fff;
       border-color: transparent;
+      box-shadow: 0 6px 12px rgba(16, 185, 129, 0.35);
+    }
+    .card {
+      border-radius: 1.1rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
     }
   </style>
 </head>
@@ -33,8 +38,11 @@
     <!-- Header -->
     <header class="mb-4 sm:mb-6">
       <div
-        class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-700 via-teal-600 to-sky-600 text-white p-4 sm:p-6 shadow-lg">
-        <div class="flex items-start justify-between gap-3">
+        class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-800 via-teal-600 to-sky-600 text-white p-4 sm:p-6 shadow-xl">
+        <div class="absolute -right-10 -top-10 w-36 h-36 bg-white/10 rounded-full blur-2xl"></div>
+        <div class="absolute -left-16 bottom-0 w-40 h-40 bg-emerald-400/20 rounded-full blur-3xl"></div>
+
+        <div class="relative flex items-start justify-between gap-3">
           <div>
             <h1 class="text-xl sm:text-2xl font-bold tracking-tight mb-1">
               釜山醫美之旅 Planner
@@ -54,8 +62,8 @@
           </div>
         </div>
 
-        <div class="mt-4 grid grid-cols-3 gap-2 text-[11px] sm:text-xs">
-          <div class="bg-white/10 rounded-xl px-3 py-2">
+        <div class="relative mt-4 grid grid-cols-3 gap-2 text-[11px] sm:text-xs">
+          <div class="bg-white/10 rounded-xl px-3 py-2 border border-white/20">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-plane-arrival text-lime-200"></i>
               <span class="font-semibold">去程</span>
@@ -63,7 +71,7 @@
             <div>BX794 桃園 → 釜山</div>
             <div class="text-emerald-100">13:25 → 17:00</div>
           </div>
-          <div class="bg-white/10 rounded-xl px-3 py-2">
+          <div class="bg-white/10 rounded-xl px-3 py-2 border border-white/20">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-hotel text-lime-200"></i>
               <span class="font-semibold">住宿</span>
@@ -75,7 +83,7 @@
             </a>
             <div class="text-emerald-100">K-Guesthouse Seomyeon 1</div>
           </div>
-          <div class="bg-white/10 rounded-xl px-3 py-2">
+          <div class="bg-white/10 rounded-xl px-3 py-2 border border-white/20">
             <div class="flex items-center gap-2 mb-1">
               <i class="fa-solid fa-plane-departure text-lime-200"></i>
               <span class="font-semibold">回程</span>
@@ -91,14 +99,19 @@
     <nav
       class="flex gap-2 overflow-x-auto no-scrollbar sticky top-0 z-20 bg-slate-100/95 backdrop-blur px-1 pb-2 pt-1 border-b border-slate-200">
       <button type="button" data-tab="overview"
-              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white shadow-sm cursor-pointer">
+              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white cursor-pointer">
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
       </button>
       <button type="button" data-tab="gs"
               class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
-        <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
-        GS・OLIVE YOUNG
+        <i class="fa-solid fa-store text-emerald-600"></i>
+        GS 便利商店
+      </button>
+      <button type="button" data-tab="olive"
+              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+        <i class="fa-solid fa-prescription-bottle-medical text-teal-600"></i>
+        OLIVE YOUNG
       </button>
       <button type="button" data-tab="day1"
               class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
@@ -121,13 +134,13 @@
       <!-- 總覽 -->
       <section data-panel="overview" class="panel space-y-4 sm:space-y-5">
         <!-- 航班 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+        <div class="bg-white card p-4 sm:p-5">
           <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
             <i class="fa-solid fa-plane text-emerald-600"></i>
             航班資訊
           </h2>
           <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div class="border rounded-xl p-3">
+            <div class="border rounded-xl p-3 bg-slate-50/40">
               <div class="font-semibold mb-1">去程｜12/25（四）</div>
               <div>釜山航空 BX794｜經濟艙</div>
               <div class="mt-1">
@@ -141,7 +154,7 @@
                 17:00 抵達
               </div>
             </div>
-            <div class="border rounded-xl p-3">
+            <div class="border rounded-xl p-3 bg-slate-50/40">
               <div class="font-semibold mb-1">回程｜12/27（六）</div>
               <div>臺灣虎航 IT607</div>
               <div class="mt-1">
@@ -159,7 +172,7 @@
         </div>
 
         <!-- 住宿 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+        <div class="bg-white card p-4 sm:p-5">
           <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
             <i class="fa-solid fa-bed text-emerald-600"></i>
             住宿資訊
@@ -173,22 +186,25 @@
               </a>
             </div>
             <div>地址：44 Sincheon-daero 62beon-gil, 釜山鎮區, 47289 釜山, 韓國</div>
-            <div class="mt-1 text-slate-500">
+            <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
               建議：抵達後直接從金海機場搭計程車前往，行李放好再開始吃飯＋逛街。
             </div>
           </div>
         </div>
 
         <!-- 重點餐廳 / 逛街點一覽 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
+        <div class="bg-white card p-4 sm:p-5">
           <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
             <i class="fa-solid fa-location-dot text-emerald-600"></i>
             重要地點總表（點名稱可開 NAVER MAP）
           </h2>
           <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div class="border rounded-xl p-3 space-y-1.5">
-              <div class="font-semibold text-slate-700 mb-1">美食・晚餐選擇</div>
-              <ul class="space-y-1">
+            <div class="border rounded-xl p-3 space-y-1.5 bg-slate-50/50">
+              <div class="font-semibold text-slate-700 mb-1 flex items-center gap-1">
+                <i class="fa-solid fa-bowl-rice text-emerald-500"></i>
+                美食・晚餐選擇
+              </div>
+              <ul class="space-y-1.5">
                 <li>
                   <a href="https://map.naver.com/p/search/서면%20떡볶이%20골목"
                      target="_blank" rel="noopener noreferrer"
@@ -200,7 +216,7 @@
                   <a href="https://map.naver.com/p/search/소문난돼지국밥%20서면본점"
                      target="_blank" rel="noopener noreferrer"
                      class="text-emerald-700 underline">
-                    傳說中的豬肉湯飯 西面總店（소문난돼지국밥 서면본점）
+                    傳說中的豬肉湯飯 西面總店
                   </a>
                 </li>
                 <li>
@@ -214,29 +230,133 @@
                   <a href="https://map.naver.com/p/search/수영본가%20돼지국밥%20서면"
                      target="_blank" rel="noopener noreferrer"
                      class="text-emerald-700 underline">
-                    水營本家 豬肉湯飯（수영본가 돼지국밥）
+                    水營本家 豬肉湯飯
                   </a>
                 </li>
                 <li>
                   <a href="https://map.naver.com/p/search/산장1988%20서면본점"
                      target="_blank" rel="noopener noreferrer"
                      class="text-emerald-700 underline">
-                    山莊1988（산장1988 서면본점）
+                    山莊1988（烤肉）
                   </a>
                 </li>
                 <li>
                   <a href="https://map.naver.com/p/search/홍콩반점0410%20부산서면롯데점"
                      target="_blank" rel="noopener noreferrer"
                      class="text-emerald-700 underline">
-                    香港飯店 0410 釜山西面樂天店（홍콩반점0410 부산서면롯데점）
+                    香港飯店 0410（炸醬麵）
                   </a>
                 </li>
               </ul>
             </div>
 
-            <div class="border rounded-xl p-3 space-y-1.5">
-              <div class="font-semibold text-slate-700 mb-1">逛街・市集・咖啡街</div>
-              <ul class="space-y-1">
+            <div class="border rounded-xl p-3 space-y-1.5 bg-slate-50/50">
+              <div class="font-semibold text-slate-700 mb-1 flex items-center gap-1">
+                <i class="fa-solid fa-bag-shopping text-emerald-500"></i>
+                逛街・市集・咖啡街
+              </div>
+              <ul class="space-y-1.5">
                 <li>
                   <a href="https://map.naver.com/p/search/서면%20지하도상가"
-                     target="
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    西面地下道街・西面Mall
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    釜山樂天百貨 釜山總店
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    OLIVE YOUNG 西面 Town 店
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/전포카페거리"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    田浦咖啡街
+                  </a>
+                </li>
+                <li>
+                  <a href="https://map.naver.com/p/search/NC백화점%20서면점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    西面 NC 百貨
+                  </a>
+                  <span class="text-[11px] text-slate-500">
+                    假日有 MAA 週末市集，延伸到田浦咖啡街。
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 醫美・一日遊 -->
+        <div class="bg-white card p-4 sm:p-5">
+          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
+            <i class="fa-solid fa-hospital-user text-emerald-600"></i>
+            醫美與行程重點
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 bg-slate-50/50">
+              <div class="font-semibold mb-1">12/26（五）醫美</div>
+              <div>
+                11:00 醫美預約：
+                <a href="https://map.naver.com/p/search/JRYN%20의원%20서면"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  釜山 JRYN
+                </a>
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                術後安排室內行程為主（西面逛街、咖啡廳），避免大太陽與大量流汗。
+              </div>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/50">
+              <div class="font-semibold mb-1">12/27（六）一日遊＋直達機場</div>
+              <div>
+                Agoda 一日遊：海東龍宮寺+藍線公園海岸列車＆天空膠囊列車＋白淺灘文化村＋甘川洞文化村。
+              </div>
+              <div class="mt-1">
+                08:40 集合：
+                <a href="https://map.naver.com/p/search/서면역%2012번%20출구"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面站 12 號出口
+                </a>
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                一日遊最後在甘川洞文化村結束，約 16:50 從甘川直接搭計程車前往金海機場，不再回飯店。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GS 便利商店 TAB -->
+      <section data-panel="gs" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              GS25 便利商店｜飲料＆一個人吃飯小抄
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              規則：<span class="font-semibold text-emerald-700">無奶、無奶茶、無氣泡</span>＋三角飯糰/便當快速解決一餐。
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px]">
+            <i class="fa-solid fa-cart-shopping"></i>
+            超商模式
+          </span>
+        </div>
+
+        <!--
