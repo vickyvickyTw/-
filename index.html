@@ -82,7 +82,7 @@
             </div>
             <div>IT607 釜山 → 桃園</div>
             <div class="text-emerald-100">21:00 → 22:30</div>
-        </div>
+          </div>
         </div>
       </div>
     </header>
@@ -95,10 +95,11 @@
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
       </button>
-      <button type="button" data-tab="money"
+      <!-- GS 清單：點了會在新分頁開 gs.html -->
+      <button type="button" data-href="gs.html"
               class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
-        <i class="fa-solid fa-coins text-amber-500"></i>
-        匯率・記帳
+        <i class="fa-solid fa-store text-emerald-600"></i>
+        GS 清單
       </button>
       <button type="button" data-tab="day1"
               class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
@@ -116,14 +117,7 @@
         <span class="hidden sm:inline">12/27</span>
       </button>
     </nav>
- <div class="mt-3">
-   <a href="gs.html"
-     target="_blank"
-     class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-100">
-    <i class="fa-solid fa-store"></i>
-    <span>GS25 便利商店必買清單</span>
-  </a>
-</div>
+
     <main class="mt-3 sm:mt-4 space-y-4 sm:space-y-6">
       <!-- 總覽 -->
       <section data-panel="overview" class="panel space-y-4 sm:space-y-5">
@@ -309,9 +303,9 @@
               </div>
             </div>
             <div class="border rounded-xl p-3">
-              <div class="font-semibold mb-1">12/27（六）一日遊</div>
+              <div class="font-semibold mb-1">12/27（六）一日遊＋直達機場</div>
               <div>
-                Agoda 一日遊套裝：藍線公園 海岸列車 & 天空膠囊列車＋海東龍宮寺＋甘川文化村＋白淺海岸村
+                Agoda 一日遊套裝：藍線公園 海岸列車 & 天空膠囊列車＋海東龍宮寺＋甘川文化村＋白淺海岸村  
               </div>
               <div class="mt-1">
                 08:40 集合：
@@ -321,270 +315,9 @@
                   西面站 12 號出口
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 一個人吃飯備忘錄 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5">
-          <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
-            <i class="fa-solid fa-user text-emerald-600"></i>
-            一個人吃飯備忘錄（西面・田浦一帶）
-          </h2>
-          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div class="border rounded-xl p-3 space-y-1.5">
-              <div class="font-semibold text-slate-700 mb-1">
-                推薦類型（不尷尬又不用點太多）
+              <div class="mt-1 text-slate-500">
+                一日遊最後在甘川洞文化村結束後，約 16:50 直接從甘川搭計程車前往金海國際機場，不再回飯店。
               </div>
-              <ul class="list-disc pl-4 space-y-1">
-                <li>
-                  <span class="font-semibold">粥（본죽 Bonjuk）</span>
-                  <div class="text-[11px] text-slate-500">
-                    一人一碗，份量剛好，術後或不想吃太多時很好用。  
-                    NAVER 搜：<span class="font-mono">본죽 서면</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">飯捲・小吃店</span>（生生飯捲、김밥천국 等）
-                  <div class="text-[11px] text-slate-500">
-                    飯捲＋湯 / 拉麵即可，一個人吃很自然。  
-                    NAVER 搜：<span class="font-mono">서면 김밥</span>、<span class="font-mono">김밥천국 서면</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">湯飯／麵店</span>
-                  <div class="text-[11px] text-slate-500">
-                    一碗湯飯 / 冷麵 / 刀削麵就是一人份。  
-                    NAVER 搜：<span class="font-mono">서면 국밥</span>、<span class="font-mono">서면 칼국수</span>、<span class="font-mono">서면 냉면</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">日式 / 越南麵（Kanda Soba, 미분당 等）</span>
-                  <div class="text-[11px] text-slate-500">
-                    拌麵、拉麵、河粉多為一人份。  
-                    NAVER 搜：<span class="font-mono">서면 칸다소바</span>、<span class="font-mono">전포 미분당</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="border rounded-xl p-3 space-y-1.5">
-              <div class="font-semibold text-slate-700 mb-1">
-                關鍵字 & 小撇步
-              </div>
-              <ul class="list-disc pl-4 space-y-1">
-                <li>
-                  <span class="font-semibold">搜尋關鍵字</span>
-                  <div class="text-[11px] text-slate-500">
-                    NAVER Map 可試：  
-                    <span class="font-mono">서면 혼밥</span>（一個人吃）、  
-                    <span class="font-mono">서면 1인 식당</span>（一人餐廳）
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">看座位</span>
-                  <div class="text-[11px] text-slate-500">
-                    有「吧台座位」或小桌子的店，基本上都很適合一個人。
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">百貨美食街</span>
-                  <div class="text-[11px] text-slate-500">
-                    樂天百貨（釜山總店）樓上的美食街，一個人吃超常見，有圖有模型，點餐零壓力。
-                  </div>
-                </li>
-                <li>
-                  <span class="font-semibold">真的很累的時候</span>
-                  <div class="text-[11px] text-slate-500">
-                    便利商店（GS25 / CU / 7-11）買飯捲、沙拉、微波便當回飯店吃就好，
-                    尤其醫美後臉不想見人太多時，非常好用。
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 匯率・記帳 -->
-      <section data-panel="money" class="panel hidden space-y-4 sm:space-y-5">
-        <div class="flex items-center justify-between gap-2">
-          <div>
-            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
-              匯率與旅費記帳
-            </h2>
-            <p class="text-[11px] sm:text-xs text-slate-500">
-              自訂匯率，快速換算韓元／台幣，順手記錄這次釜山花費。
-            </p>
-          </div>
-          <span
-            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-50 text-amber-700 text-[11px]">
-            <i class="fa-solid fa-wallet"></i>
-            Money
-          </span>
-        </div>
-
-        <!-- 匯率小工具 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5 space-y-4">
-          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <i class="fa-solid fa-coins text-amber-500"></i>
-            匯率換算小工具
-          </h3>
-
-          <div class="grid sm:grid-cols-[1.2fr,1.8fr] gap-3 text-xs sm:text-sm">
-            <div class="border rounded-xl p-3 space-y-2">
-              <div class="flex items-center justify-between gap-2">
-                <span class="font-semibold text-slate-700">匯率設定</span>
-                <span class="text-[11px] text-slate-400">
-                  可依實際換匯金額自行調整
-                </span>
-              </div>
-              <label class="text-[11px] sm:text-xs text-slate-500 block">
-                每 <span class="font-semibold text-slate-700">1,000 KRW</span> 約等於幾元新台幣？
-              </label>
-              <div class="flex items-center gap-2">
-                <div class="flex items-center border rounded-lg px-2 py-1.5 flex-1 bg-slate-50">
-                  <span class="text-[11px] text-slate-500 mr-1">NT$</span>
-                  <input id="ratePerThousand"
-                         type="number" step="0.01"
-                         class="w-full bg-transparent outline-none text-right text-xs sm:text-sm"
-                         value="25" />
-                </div>
-              </div>
-              <div id="rateSummary" class="text-[11px] text-emerald-700 mt-1"></div>
-            </div>
-
-            <!-- 速算 -->
-            <div class="border rounded-xl p-3 space-y-3">
-              <div class="font-semibold text-slate-700 text-xs sm:text-sm">
-                快速換算
-              </div>
-
-              <div class="grid sm:grid-cols-2 gap-3">
-                <!-- KRW -> TWD -->
-                <div class="space-y-1.5">
-                  <label class="text-[11px] text-slate-500 block">
-                    韓元 → 台幣
-                  </label>
-                  <div class="flex items-center gap-2">
-                    <input id="krwInput"
-                           type="number" step="1"
-                           placeholder="例如 30000"
-                           class="w-full border rounded-lg px-2 py-1.5 text-xs sm:text-sm bg-slate-50 outline-none" />
-                    <span class="text-[11px] text-slate-500">KRW</span>
-                  </div>
-                  <div id="twdFromKrwOutput"
-                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center"></div>
-                </div>
-
-                <!-- TWD -> KRW -->
-                <div class="space-y-1.5">
-                  <label class="text-[11px] text-slate-500 block">
-                    台幣 → 韓元
-                  </label>
-                  <div class="flex items-center gap-2">
-                    <span class="text-[11px] text-slate-500">NT$</span>
-                    <input id="twdInput"
-                           type="number" step="1"
-                           placeholder="例如 1000"
-                           class="w-full border rounded-lg px-2 py-1.5 text-xs sm:text-sm bg-slate-50 outline-none" />
-                  </div>
-                  <div id="krwFromTwdOutput"
-                       class="text-[11px] sm:text-xs text-emerald-700 h-4 flex items-center"></div>
-                </div>
-              </div>
-
-              <div class="text-[11px] text-slate-400">
-                備註：此為「估算用匯率」，實際金額依銀行或刷卡帳單為準。
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 簡易記帳 -->
-        <div class="bg-white rounded-2xl shadow-sm p-4 sm:p-5 space-y-4">
-          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <i class="fa-solid fa-clipboard-list text-emerald-600"></i>
-            旅費簡易記帳
-          </h3>
-          <p class="text-[11px] sm:text-xs text-slate-500">
-            手邊花多少就記多少，幣別可以混著記。系統會用上面設定的匯率，幫你換算成台幣估算金額。  
-            （會儲存在這台裝置的瀏覽器，如果換電腦或清除瀏覽資料就會被清掉。）
-          </p>
-
-          <!-- 新增一筆支出 -->
-          <div class="border rounded-2xl p-3 sm:p-4 bg-slate-50 space-y-3 text-xs sm:text-sm">
-            <div class="font-semibold text-slate-700 text-xs sm:text-sm">
-              新增一筆支出
-            </div>
-            <div class="grid sm:grid-cols-[0.9fr,1.6fr,0.8fr,1fr,auto] gap-2 items-center">
-              <select id="expenseDay"
-                      class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs">
-                <option value="D1">D1・12/25</option>
-                <option value="D2">D2・12/26</option>
-                <option value="D3">D3・12/27</option>
-                <option value="其他">其他</option>
-              </select>
-              <input id="expenseItem"
-                     type="text"
-                     placeholder="例如：晚餐豬肉湯飯／OLIVE YOUNG"
-                     class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs" />
-              <select id="expenseCurrency"
-                      class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs">
-                <option value="KRW">KRW 韓元</option>
-                <option value="TWD">TWD 台幣</option>
-              </select>
-              <input id="expenseAmount"
-                     type="number" step="1"
-                     placeholder="金額"
-                     class="border rounded-lg px-2 py-1.5 bg-white text-[11px] sm:text-xs text-right" />
-              <button id="addExpenseBtn"
-                      type="button"
-                      class="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-full bg-emerald-600 text-white text-[11px] sm:text-xs shadow-sm hover:bg-emerald-700">
-                <i class="fa-solid fa-plus"></i>
-                新增
-              </button>
-            </div>
-            <div id="expenseError"
-                 class="text-[11px] text-rose-500 h-4 flex items-center"></div>
-          </div>
-
-          <!-- 記帳表格 -->
-          <div class="border rounded-2xl overflow-hidden text-xs sm:text-sm">
-            <div class="bg-slate-50 px-3 sm:px-4 py-2 flex items-center justify-between">
-              <span class="font-semibold text-slate-700">本趟支出列表</span>
-              <span class="text-[11px] text-slate-400">
-                點「🗑」可刪除該筆
-              </span>
-            </div>
-            <div class="max-h-80 overflow-y-auto no-scrollbar">
-              <table class="w-full text-left text-[11px] sm:text-xs">
-                <thead class="bg-slate-100 text-slate-500 sticky top-0 z-10">
-                  <tr>
-                    <th class="px-2 sm:px-3 py-2">日期</th>
-                    <th class="px-2 sm:px-3 py-2">項目</th>
-                    <th class="px-2 sm:px-3 py-2 text-right">幣別</th>
-                    <th class="px-2 sm:px-3 py-2 text-right">金額</th>
-                    <th class="px-2 sm:px-3 py-2 text-right">台幣估算</th>
-                    <th class="px-2 sm:px-3 py-2 text-center w-10">刪除</th>
-                  </tr>
-                </thead>
-                <tbody id="expenseTableBody"></tbody>
-              </table>
-            </div>
-            <div class="bg-slate-50 px-3 sm:px-4 py-2 border-t flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-              <div class="text-[11px] text-slate-600">
-                累計：  
-                <span id="totalKRW" class="font-semibold text-slate-800">KRW 0</span>
-                <span class="mx-1">｜</span>
-                <span id="totalTWD" class="font-semibold text-slate-800">NT$ 0</span>
-              </div>
-              <button id="clearExpensesBtn"
-                      type="button"
-                      class="text-[11px] text-rose-500 hover:text-rose-600 inline-flex items-center gap-1">
-                <i class="fa-solid fa-trash-can"></i>
-                全部清空（這台裝置）
-              </button>
             </div>
           </div>
         </div>
@@ -863,7 +596,7 @@
           </div>
 
           <!-- Lunch / rest -->
-          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:px-4">
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
             <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
               13:00
             </div>
@@ -879,7 +612,7 @@
           </div>
 
           <!-- Soft shopping -->
-          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:px-4">
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
             <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
               下午<br />～晚上
             </div>
@@ -933,10 +666,10 @@
         <div class="flex items-center justify-between gap-2">
           <div>
             <h2 class="text-sm sm:text-base font-semibold text-slate-800">
-              Day 3・12/27（六）一日遊 & 回程
+              Day 3・12/27（六）一日遊 & 直接前往機場
             </h2>
             <p class="text-[11px] sm:text-xs text-slate-500">
-              Agoda 釜山精華景點一日遊 → 白淺海岸村 → 金海機場 → 桃園
+              Agoda 釜山精華景點一日遊 → 最後停留甘川洞文化村 → 直接搭計程車前往金海機場 → 桃園
             </p>
           </div>
           <span
@@ -977,7 +710,7 @@
           <!-- Day tour running -->
           <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
             <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
-              09:00<br />～ 約 17:30
+              09:00<br />～ 下午
             </div>
             <div class="flex-1 text-xs sm:text-sm">
               <div class="font-semibold flex items-center gap-2">
@@ -985,50 +718,65 @@
                 一日遊行程進行中
               </div>
               <div class="mt-1 text-slate-500">
-                依旅行社安排停靠幾個主要景點（實際順序以當日導遊說明為主）：
+                依旅行社安排停靠幾個主要景點（實際順序以當日導遊說明為主），包含：
               </div>
               <ul class="mt-1 list-disc pl-4 space-y-1">
                 <li>海東龍宮寺</li>
                 <li>藍線公園 海岸列車 & 天空膠囊列車</li>
-                <li>甘川文化村</li>
-                <li>白淺海岸村 等</li>
+                <li>白淺海岸村</li>
+                <li>甘川洞文化村（預計約 15:50 抵達，停留約 1 小時）</li>
               </ul>
               <div class="mt-2 text-[11px] text-slate-500">
-                預計約下午 5 點半左右在白淺海岸村附近結束行程（實際時間以導遊公告為準）。  
-                建議攜帶：口罩、防曬、護唇膏、小條修復霜、折疊傘／帽子。若前一天醫美能量較高，這天記得多補防曬＋保濕。
+                建議攜帶：口罩、防曬、護唇膏、小條修復霜、折疊傘／帽子。  
+                若前一天醫美能量較高，這天記得多補防曬＋保濕。
               </div>
             </div>
           </div>
 
-          <!-- Airport & return (直接從文化村去機場) -->
+          <!-- Gamcheon -> Airport -->
           <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
             <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
-              約 17:30<br />之後
+              約 16:50<br />甘川出發
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-taxi text-emerald-600"></i>
+                甘川洞文化村 → 金海國際機場
+              </div>
+              <div class="mt-1 text-slate-500">
+                一日遊在甘川洞文化村結束後，約 16:50 左右從甘川直接搭計程車前往
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  金海國際機場（國際線出發）
+                </a>
+                ，不再回西面飯店。
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                可請導遊協助與司機溝通：「김해국제공항 국제선 출발 가 주세요.」  
+                車程約 20～30 分鐘，視當天交通情況而定。
+              </div>
+            </div>
+          </div>
+
+          <!-- Airport & return -->
+          <div class="flex gap-3 bg-white rounded-2xl shadow-sm p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              約 17:20<br />之後
             </div>
             <div class="flex-1 text-xs sm:text-sm">
               <div class="font-semibold flex items-center gap-2">
                 <i class="fa-solid fa-plane-departure text-emerald-600"></i>
-                白淺海岸村 → 金海機場 & 回程
+                金海機場 & 回程
               </div>
               <div class="mt-1">
-                一日遊在白淺海岸村附近結束後，
-                建議直接從解散地點搭計程車前往
-                <a href="https://map.naver.com/p/search/김해국제공항"
-                   target="_blank" rel="noopener noreferrer"
-                   class="text-emerald-700 underline">
-                  金海國際機場
-                </a>
-                ，車程約 30～40 分鐘（依路況）。
-              </div>
-              <div class="mt-1 text-slate-500">
-                建議：大約 17:30 左右上車，18:10 前抵達機場，預留足夠時間辦理登機與安檢。
-                可請導遊協助協調叫車與行李下車。
+                抵達金海國際機場後，先找到「國際線出發」櫃檯，辦理登機與行李託運。
               </div>
               <div class="mt-1">
                 回程航班：臺灣虎航 IT607｜金海 21:00 → 桃園 T1 22:30
               </div>
               <div class="mt-1 text-[11px] text-slate-500">
-                機場可再補一次保濕＋護唇，回台後連接「術後修復保養」模式。
+                辦完登機後，可在機場簡單用餐、補一次保濕＋護唇，之後回台就直接進入「術後修復保養」模式。
               </div>
             </div>
           </div>
@@ -1037,23 +785,16 @@
     </main>
 
     <footer class="mt-6 mb-4 text-center text-[11px] text-slate-400 space-y-1">
-  <div>
-    釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
-  </div>
-
-  <!-- 連到 GS 便利商店清單 -->
-  <a href="gs.html"
-     target="_blank"
-     class="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 text-xs font-semibold">
-    <i class="fa-solid fa-store"></i>
-    <span>打開 GS25 便利商店必買清單</span>
-  </a>
-</footer>
-
+      <div>
+        釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
+      </div>
+      <div class="text-[11px] text-slate-400">
+        GS25 便利商店必買清單請使用上方「GS 清單」分頁開啟（gs.html）
+      </div>
+    </footer>
   </div>
 
   <script>
-    // ---- TAB 切換 ----
     const tabButtons = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.panel');
 
@@ -1065,6 +806,13 @@
 
     tabButtons.forEach(btn => {
       btn.addEventListener('click', () => {
+        const href = btn.dataset.href;
+        if (href) {
+          // GS 清單：開新分頁，不切換內頁 panel
+          window.open(href, '_blank');
+          return;
+        }
+
         const target = btn.dataset.tab;
         tabButtons.forEach(b => b.classList.remove('tab-active'));
         btn.classList.add('tab-active');
@@ -1072,254 +820,8 @@
       });
     });
 
-    // 起始顯示「總覽」
+    // 預設顯示總覽
     showPanel('overview');
-
-    // ---- safe localStorage ----
-    function safeGetItem(key) {
-      try {
-        if (typeof window !== 'undefined' && window.localStorage) {
-          return window.localStorage.getItem(key);
-        }
-      } catch (e) {}
-      return null;
-    }
-
-    function safeSetItem(key, value) {
-      try {
-        if (typeof window !== 'undefined' && window.localStorage) {
-          window.localStorage.setItem(key, value);
-        }
-      } catch (e) {}
-    }
-
-    // === 匯率 & 記帳功能 ===
-    const rateInput = document.getElementById('ratePerThousand');
-    const rateSummary = document.getElementById('rateSummary');
-    const krwInput = document.getElementById('krwInput');
-    const twdFromKrwOutput = document.getElementById('twdFromKrwOutput');
-    const twdInput = document.getElementById('twdInput');
-    const krwFromTwdOutput = document.getElementById('krwFromTwdOutput');
-
-    const expenseDay = document.getElementById('expenseDay');
-    const expenseItem = document.getElementById('expenseItem');
-    const expenseCurrency = document.getElementById('expenseCurrency');
-    const expenseAmount = document.getElementById('expenseAmount');
-    const addExpenseBtn = document.getElementById('addExpenseBtn');
-    const expenseError = document.getElementById('expenseError');
-    const expenseTableBody = document.getElementById('expenseTableBody');
-    const totalKRW = document.getElementById('totalKRW');
-    const totalTWD = document.getElementById('totalTWD');
-    const clearExpensesBtn = document.getElementById('clearExpensesBtn');
-
-    const STORAGE_KEY_EXPENSES = 'busanTripExpensesV1';
-    const STORAGE_KEY_RATE = 'busanTripRatePerThousand';
-
-    let expenses = [];
-
-    function loadRate() {
-      const storedRate = safeGetItem(STORAGE_KEY_RATE);
-      if (storedRate && !isNaN(parseFloat(storedRate))) {
-        rateInput.value = storedRate;
-      }
-    }
-
-    function getRatePerThousand() {
-      const v = parseFloat(rateInput.value);
-      return isNaN(v) || v <= 0 ? 25 : v;
-    }
-
-    function updateRateSummary() {
-      const rate = getRatePerThousand();
-      const perOne = rate / 1000;
-      rateSummary.textContent =
-        `目前設定：1,000 KRW ≈ NT$ ${rate.toFixed(2)}（1 KRW ≈ NT$ ${perOne.toFixed(4)}）`;
-    }
-
-    function krwToTwd(krw) {
-      const rate = getRatePerThousand();
-      return krw / 1000 * rate;
-    }
-
-    function twdToKrw(twd) {
-      const rate = getRatePerThousand();
-      return rate === 0 ? 0 : twd / rate * 1000;
-    }
-
-    function updateConverters() {
-      const krwVal = parseFloat(krwInput.value);
-      if (!isNaN(krwVal) && krwVal > 0) {
-        const twd = krwToTwd(krwVal);
-        twdFromKrwOutput.textContent = `約 NT$ ${twd.toFixed(0)} 元`;
-      } else {
-        twdFromKrwOutput.textContent = '';
-      }
-
-      const twdVal = parseFloat(twdInput.value);
-      if (!isNaN(twdVal) && twdVal > 0) {
-        const krw = twdToKrw(twdVal);
-        krwFromTwdOutput.textContent = `約 ₩ ${krw.toFixed(0)} KRW`;
-      } else {
-        krwFromTwdOutput.textContent = '';
-      }
-    }
-
-    function loadExpenses() {
-      const raw = safeGetItem(STORAGE_KEY_EXPENSES);
-      if (!raw) return;
-      try {
-        const arr = JSON.parse(raw);
-        if (Array.isArray(arr)) {
-          expenses = arr;
-        }
-      } catch (e) {
-        console.warn('load expenses error', e);
-      }
-    }
-
-    function saveExpenses() {
-      safeSetItem(STORAGE_KEY_EXPENSES, JSON.stringify(expenses));
-    }
-
-    function renderExpenses() {
-      if (!expenseTableBody) return;
-      expenseTableBody.innerHTML = '';
-      let sumKRW = 0;
-      let sumTWDVal = 0;
-
-      expenses.forEach(item => {
-        const tr = document.createElement('tr');
-        tr.className = 'border-b border-slate-100';
-
-        const tdDay = document.createElement('td');
-        tdDay.className = 'px-2 sm:px-3 py-1.5 align-top';
-        tdDay.textContent = item.day;
-
-        const tdItem = document.createElement('td');
-        tdItem.className = 'px-2 sm:px-3 py-1.5 align-top';
-        tdItem.textContent = item.name || '';
-
-        const tdCurrency = document.createElement('td');
-        tdCurrency.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
-        tdCurrency.textContent = item.currency;
-
-        const tdAmount = document.createElement('td');
-        tdAmount.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
-        tdAmount.textContent = item.amount.toLocaleString();
-
-        const tdTwd = document.createElement('td');
-        tdTwd.className = 'px-2 sm:px-3 py-1.5 text-right align-top';
-        let twdVal = 0;
-        if (item.currency === 'TWD') {
-          twdVal = item.amount;
-          sumTWDVal += item.amount;
-        } else {
-          twdVal = krwToTwd(item.amount);
-          sumKRW += item.amount;
-          sumTWDVal += twdVal;
-        }
-        tdTwd.textContent = `NT$ ${twdVal.toFixed(0)}`;
-
-        const tdDelete = document.createElement('td');
-        tdDelete.className = 'px-2 sm:px-3 py-1.5 text-center align-top';
-        const delBtn = document.createElement('button');
-        delBtn.type = 'button';
-        delBtn.className = 'text-rose-500 hover:text-rose-600';
-        delBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-        delBtn.addEventListener('click', () => {
-          expenses = expenses.filter(e => e.id !== item.id);
-          saveExpenses();
-          renderExpenses();
-        });
-        tdDelete.appendChild(delBtn);
-
-        tr.appendChild(tdDay);
-        tr.appendChild(tdItem);
-        tr.appendChild(tdCurrency);
-        tr.appendChild(tdAmount);
-        tr.appendChild(tdTwd);
-        tr.appendChild(tdDelete);
-
-        expenseTableBody.appendChild(tr);
-      });
-
-      if (totalKRW) totalKRW.textContent = `KRW ${sumKRW.toLocaleString()}`;
-      if (totalTWD) totalTWD.textContent = `NT$ ${sumTWDVal.toFixed(0)}`;
-    }
-
-    // 初始化
-    if (rateInput) {
-      loadRate();
-      updateRateSummary();
-      if (krwInput && twdInput) updateConverters();
-
-      rateInput.addEventListener('input', () => {
-        const rate = getRatePerThousand();
-        safeSetItem(STORAGE_KEY_RATE, rate.toString());
-        updateRateSummary();
-        if (krwInput && twdInput) {
-          updateConverters();
-          renderExpenses();
-        }
-      });
-    }
-
-    if (krwInput) {
-      krwInput.addEventListener('input', updateConverters);
-    }
-    if (twdInput) {
-      twdInput.addEventListener('input', updateConverters);
-    }
-
-    loadExpenses();
-    renderExpenses();
-
-    if (addExpenseBtn) {
-      addExpenseBtn.addEventListener('click', () => {
-        if (!expenseError) return;
-        expenseError.textContent = '';
-
-        const day = expenseDay.value || '其他';
-        const name = (expenseItem.value || '').trim();
-        const currency = expenseCurrency.value || 'KRW';
-        const amount = parseFloat(expenseAmount.value);
-
-        if (!name) {
-          expenseError.textContent = '請輸入「項目」。';
-          return;
-        }
-        if (isNaN(amount) || amount <= 0) {
-          expenseError.textContent = '請輸入正確的「金額」。';
-          return;
-        }
-
-        const newItem = {
-          id: Date.now() + '_' + Math.random().toString(16).slice(2),
-          day,
-          name,
-          currency,
-          amount
-        };
-        expenses.push(newItem);
-        saveExpenses();
-        renderExpenses();
-
-        expenseItem.value = '';
-        expenseAmount.value = '';
-      });
-    }
-
-    if (clearExpensesBtn) {
-      clearExpensesBtn.addEventListener('click', () => {
-        if (!confirm('確定要清空這台裝置上的記帳紀錄嗎？')) return;
-        expenses = [];
-        saveExpenses();
-        renderExpenses();
-      });
-    }
   </script>
 </body>
 </html>
-
-
-
