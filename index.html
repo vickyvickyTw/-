@@ -98,41 +98,41 @@
     <!-- Tabs -->
     <nav
       class="flex gap-2 overflow-x-auto no-scrollbar sticky top-0 z-20 bg-slate-100/95 backdrop-blur px-1 pb-2 pt-1 border-b border-slate-200">
-      <button type="button" data-tab="overview"
-              class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white cursor-pointer">
+      <a href="#overview" data-tab="overview"
+         class="tab-btn tab-active flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-700 bg-white cursor-pointer">
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
-      </button>
-      <button type="button" data-tab="gs"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+      </a>
+      <a href="#gs" data-tab="gs"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <i class="fa-solid fa-store text-emerald-600"></i>
-        GS 便利商店
-      </button>
-      <button type="button" data-tab="olive"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+        GS
+      </a>
+      <a href="#olive" data-tab="olive"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <i class="fa-solid fa-prescription-bottle-medical text-teal-600"></i>
-        OLIVE YOUNG
-      </button>
-      <button type="button" data-tab="day1"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+        OY
+      </a>
+      <a href="#day1" data-tab="day1"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D1</span>
         <span class="hidden sm:inline">12/25</span>
-      </button>
-      <button type="button" data-tab="day2"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+      </a>
+      <a href="#day2" data-tab="day2"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D2</span>
         <span class="hidden sm:inline">12/26</span>
-      </button>
-      <button type="button" data-tab="day3"
-              class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+      </a>
+      <a href="#day3" data-tab="day3"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <span>D3</span>
         <span class="hidden sm:inline">12/27</span>
-      </button>
+      </a>
     </nav>
 
     <main class="mt-3 sm:mt-4 space-y-4 sm:space-y-6">
       <!-- 總覽 -->
-      <section data-panel="overview" class="panel space-y-4 sm:space-y-5">
+      <section id="overview" data-panel="overview" class="panel space-y-4 sm:space-y-5">
         <!-- 航班 -->
         <div class="bg-white card p-4 sm:p-5">
           <h2 class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-3">
@@ -323,7 +323,7 @@
             <div class="border rounded-xl p-3 bg-slate-50/50">
               <div class="font-semibold mb-1">12/27（六）一日遊＋直達機場</div>
               <div>
-                Agoda 一日遊：海東龍宮寺+藍線公園海岸列車＆天空膠囊列車＋白淺灘文化村＋甘川洞文化村。
+                Agoda 一日遊：藍線公園海岸列車＆天空膠囊列車＋海東龍宮寺＋甘川文化村＋白淺海岸村。
               </div>
               <div class="mt-1">
                 08:40 集合：
@@ -342,7 +342,7 @@
       </section>
 
       <!-- GS 便利商店 TAB -->
-      <section data-panel="gs" class="panel hidden space-y-4 sm:space-y-5">
+      <section id="gs" data-panel="gs" class="panel hidden space-y-4 sm:space-y-5">
         <div class="flex items-center justify-between gap-2">
           <div>
             <h2 class="text-sm sm:text-base font-semibold text-slate-800">
@@ -359,4 +359,846 @@
           </span>
         </div>
 
-        <!--
+        <!-- 飲料 OK -->
+        <section class="bg-white card p-4 sm:p-5 space-y-3">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-glass-water text-emerald-600"></i>
+            可以安心拿的飲料（無奶・無氣泡）
+          </h3>
+          <p class="text-[11px] sm:text-xs text-slate-500">
+            看不懂韓文，就記「茶、黑咖啡、電解質飲」三大類。
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 bg-slate-50/60 space-y-1.5">
+              <div class="font-semibold text-slate-700">① 茶類（無糖為主）</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>綠茶：<span class="font-mono">녹차</span></li>
+                <li>麥茶：<span class="font-mono">보리차</span></li>
+                <li>玉米鬚茶：<span class="font-mono">옥수수 수염차</span></li>
+              </ul>
+              <p class="text-[11px] text-slate-500">
+                當水喝沒問題，逛街補水首選。
+              </p>
+            </div>
+
+            <div class="border rounded-xl p-3 bg-slate-50/60 space-y-1.5">
+              <div class="font-semibold text-slate-700">② 黑咖啡（美式）</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>美式咖啡：<span class="font-mono">아메리카노</span></li>
+                <li>黑咖啡：<span class="font-mono">블랙</span></li>
+                <li>成分表只有水＋咖啡 ✔</li>
+              </ul>
+              <p class="text-[11px] text-slate-500">
+                想醒腦又怕奶，就選這類。
+              </p>
+            </div>
+
+            <div class="border rounded-xl p-3 bg-slate-50/60 space-y-1.5">
+              <div class="font-semibold text-slate-700">③ 運動飲料（非氣泡）</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>電解質飲：<span class="font-mono">이온 음료</span></li>
+                <li>瓶身不要滿滿氣泡圖案</li>
+              </ul>
+              <p class="text-[11px] text-slate-500">
+                流汗多的那天，可當補水備用。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 飲料避雷 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-3">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-triangle-exclamation text-rose-500"></i>
+            飲料避雷關鍵字｜看到就放回去
+          </h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 bg-rose-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">含奶／奶茶</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li><span class="font-mono">우유</span> ＝牛奶</li>
+                <li><span class="font-mono">라떼</span> ＝拿鐵</li>
+                <li><span class="font-mono">밀크티</span> ＝奶茶</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-rose-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">有氣泡的飲料</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li><span class="font-mono">탄산</span>＝碳酸</li>
+                <li><span class="font-mono">스파클링</span>＝sparkling</li>
+                <li><span class="font-mono">소다</span>＝soda</li>
+              </ul>
+            </div>
+          </div>
+          <div class="border rounded-xl p-3 text-[11px] sm:text-xs text-slate-600 bg-rose-50">
+            一句話：看到「우유 / 라떼 / 밀크티 / 탄산 / 스파클링 / 소다」就先說掰掰。
+          </div>
+        </section>
+
+        <!-- 正餐＆微波 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-3">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-bowl-rice text-amber-500"></i>
+            一個人吃飯｜快速組合
+          </h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">組合 1：三角飯糰＋茶</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>三角飯糰：<span class="font-mono">삼각김밥</span></li>
+                <li>口味選看起來不會太紅的：鮪魚、昆布、肉鬆等</li>
+                <li>搭配玉米鬚茶／麥茶</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">組合 2：小便當＋茶</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>關鍵字：便當 <span class="font-mono">도시락</span></li>
+                <li>看起來是白飯＋幾樣小菜的家常款</li>
+                <li>避免整盒紅通通或滿滿起司</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">組合 3：飯捲＋湯</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>飯捲：<span class="font-mono">김밥</span></li>
+                <li>搭配一碗微波湯（看起來不太紅）</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-amber-50 space-y-1.5 text-[11px] sm:text-xs text-slate-700">
+              胃不舒服那天：就用「三角飯糰 + 無糖茶」解決一餐，不勉強。
+            </div>
+          </div>
+        </section>
+
+        <!-- 零食 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-3">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-cookie-bite text-emerald-600"></i>
+            零食 & 帶回台灣
+          </h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">現場解嘴饞</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>烏龜玉米脆片（꼬북칩）</li>
+                <li>扁可頌餅乾</li>
+                <li>藥菓／藥菓餅乾（偏甜，一兩塊就夠）</li>
+                <li>Zero 系列無糖零食</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">帶回台灣</div>
+              <ul class="list-disc pl-4 space-y-1">
+                <li>烏龜玉米脆片幾包（同事很好分）</li>
+                <li>扁可頌餅乾（外型好看）</li>
+                <li>小包藥菓餅乾當伴手禮</li>
+                <li>Zero 系列當辦公室零食</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- OLIVE YOUNG TAB -->
+      <section id="olive" data-panel="olive" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              OLIVE YOUNG 術後友善必買｜含縮圖對照
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              主軸：保濕・修復・鎮靜・防曬，先顧好「術後基本盤」，再逛彩妝＆香氛。
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-teal-50 text-teal-700 text-[11px]">
+            <i class="fa-solid fa-face-smile"></i>
+            術後友善
+          </span>
+        </div>
+
+        <!-- 說明 -->
+        <div class="bg-white card p-3 sm:p-4 text-[11px] sm:text-xs text-slate-600 flex items-start gap-2">
+          <i class="fa-solid fa-image text-emerald-500 mt-0.5"></i>
+          <div>
+            商品縮圖已幫你預留位置：  
+            只要把官網/購物網站的商品圖片存成對應檔名（例如 <code>anua-heartleaf-77-toner.jpg</code>），
+            放在和這個 HTML 同一層或 <code>images</code> 資料夾裡，就會在清單前面顯示小圖，方便在架上找貨。
+          </div>
+        </div>
+
+        <!-- 重點商品：有縮圖 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-4">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800 mb-1">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            術後友善 4 大主力商品（建議優先找）
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <!-- 1. Anua Heartleaf 77 Toner -->
+            <article class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 flex gap-3">
+              <div class="shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-slate-200">
+                  <!-- 把商品圖存成此檔名：images/anua-heartleaf-77-toner.jpg -->
+                  <img src="images/anua-heartleaf-77-toner.jpg"
+                       alt="Anua Heartleaf 77 Soothing Toner"
+                       class="w-full h-full object-cover"
+                       onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fa-solid fa-droplet text-emerald-500 text-lg&quot;></i>';">
+                </div>
+              </div>
+              <div class="flex-1 space-y-1">
+                <div class="font-semibold text-slate-800">
+                  Anua 安優｜Heartleaf 77 舒緩化妝水
+                </div>
+                <div class="text-[11px] text-slate-500">
+                  關鍵字：Heartleaf 77、Soothing Toner、綠色瓶身。主打鎮靜＋保濕，偏敏感肌也常用。
+                </div>
+                <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                  <li>用途：洗臉後第一步補水鎮靜</li>
+                  <li>適合：術後幾天當「化妝水＋濕敷」使用</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 2. Torriden Dive-In Serum -->
+            <article class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 flex gap-3">
+              <div class="shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-slate-200">
+                  <!-- 商品圖檔名：images/torriden-dive-in-serum.jpg -->
+                  <img src="images/torriden-dive-in-serum.jpg"
+                       alt="Torriden Dive-In Serum"
+                       class="w-full h-full object-cover"
+                       onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fa-solid fa-droplet text-sky-500 text-lg&quot;></i>';">
+                </div>
+              </div>
+              <div class="flex-1 space-y-1">
+                <div class="font-semibold text-slate-800">
+                  Torriden 托里登｜Dive-In 低分子玻尿酸精華
+                </div>
+                <div class="text-[11px] text-slate-500">
+                  關鍵字：Dive-In、Hyaluronic Acid Serum、藍色透明瓶。主打深度保濕、不厚重。
+                </div>
+                <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                  <li>用途：化妝水之後加強保濕</li>
+                  <li>適合：術後乾癢、緊繃時當「救援保濕精華」</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 3. Round Lab Birch Juice Sunscreen -->
+            <article class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 flex gap-3">
+              <div class="shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-slate-200">
+                  <!-- 商品圖檔名：images/roundlab-birch-sunscreen.jpg -->
+                  <img src="images/roundlab-birch-sunscreen.jpg"
+                       alt="ROUND LAB Birch Juice Moisturizing Sunscreen"
+                       class="w-full h-full object-cover"
+                       onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fa-solid fa-sun text-amber-400 text-lg&quot;></i>';">
+                </div>
+              </div>
+              <div class="flex-1 space-y-1">
+                <div class="font-semibold text-slate-800">
+                  ROUND LAB｜白樺樹保濕防曬（Birch Juice Sunscreen）
+                </div>
+                <div class="text-[11px] text-slate-500">
+                  關鍵字：Birch Juice、Moisturizing Sunscreen、白藍色軟管。質地輕薄、不明顯泛白。
+                </div>
+                <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                  <li>用途：日間必備防曬</li>
+                  <li>術後幾天：搭配傘＋帽子，一起當主力防禦</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 4. Cica 修復霜 -->
+            <article class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 flex gap-3">
+              <div class="shrink-0">
+                <div class="w-16 h-16 rounded-xl bg-white flex items-center justify-center overflow-hidden border border-slate-200">
+                  <!-- 商品圖檔名：images/cica-repair-cream.jpg -->
+                  <img src="images/cica-repair-cream.jpg"
+                       alt="Cica Repair Cream"
+                       class="w-full h-full object-cover"
+                       onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=&quot;fa-solid fa-leaf text-emerald-500 text-lg&quot;></i>';">
+                </div>
+              </div>
+              <div class="flex-1 space-y-1">
+                <div class="font-semibold text-slate-800">
+                  積雪草 CICA 修復乳霜（任一品牌溫和款）
+                </div>
+                <div class="text-[11px] text-slate-500">
+                  關鍵字：CICA、Repair Cream、敏感肌、Barrier／Repair。包裝多為綠色或白綠色。
+                </div>
+                <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                  <li>用途：晚間「封膚」修復，鎖住前面精華</li>
+                  <li>適合：泛紅時厚敷在雙頰、鼻翼兩側</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 類別優先順序 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-3 text-xs sm:text-sm">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800 mb-1">
+            <i class="fa-solid fa-list-ul text-emerald-600"></i>
+            逛 OLIVE YOUNG 的優先順序
+          </h3>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">① 洗卸（溫和為主）</div>
+              <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                <li>關鍵字：敏感肌、Low pH、Gentle、Hypoallergenic</li>
+                <li>避免：深層去角質、磨砂、強調控油的款式</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">② 修復＆保濕</div>
+              <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                <li>關鍵字：CICA、Ceramide（神經醯胺）、Panthenol</li>
+                <li>選擇：乳霜或乳液質地，標明「Barrier」「Repair」</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">③ 面膜（鎮靜補水）</div>
+              <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                <li>關鍵字：Soothing、Calming、진정（鎮靜）、수분（保濕）</li>
+                <li>避免：撕除式、去角質、強調煥膚的面膜</li>
+              </ul>
+            </div>
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-1.5">
+              <div class="font-semibold text-slate-700">④ 防曬（最重要）</div>
+              <ul class="list-disc pl-4 text-[11px] space-y-0.5 text-slate-600">
+                <li>優先選擇：敏感肌可用、無香料、無酒精</li>
+                <li>白天再配帽子、遮陽傘，一起幫皮膚擋太陽</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-1 border rounded-xl p-3 bg-emerald-50 text-[11px] sm:text-xs text-slate-700">
+            小提醒：先把「洗卸 → 保濕修復 → 防曬」買齊，彩妝只挑 1～2 個最常用的（氣墊＋潤色護唇）就好。
+          </div>
+        </section>
+      </section>
+
+      <!-- Day 1 -->
+      <section id="day1" data-panel="day1" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 1・12/25（四）抵達釜山 & 西面吃喝逛街
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              桃園出發 → 金海機場 → 西面 K 旅館 → 晚餐 → 地下街 & 樂天百貨
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px]">
+            <i class="fa-solid fa-suitcase-rolling"></i>
+            抵達日
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Flight -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              13:25<br />→ 17:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-plane-arrival text-emerald-600"></i>
+                桃園 → 釜山（金海機場）
+              </div>
+              <div class="mt-1">
+                釜山航空 BX794｜桃園 TPE 13:25 起飛 →
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  金海國際機場
+                </a>
+                17:00 抵達。
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                下機後：看狀況可在機場補一下防曬，再搭計程車直奔飯店。
+              </div>
+            </div>
+          </div>
+
+          <!-- Taxi & Hotel -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              約 17:30<br />→ 18:30
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-taxi text-emerald-600"></i>
+                計程車到飯店 & Check-in
+              </div>
+              <div class="mt-1">
+                住宿：
+                <a href="https://map.naver.com/p/search/K-게스트하우스%20서면1호점"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面 K 旅館（K-Guesthouse Seomyeon 1）
+                </a>
+              </div>
+              <div>地址：44 Sincheon-daero 62beon-gil, 釜山鎮區, 47289 釜山, 韓國</div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                行李放好、稍微盥洗休息，晚上再出門覓食＋逛街。
+              </div>
+            </div>
+          </div>
+
+          <!-- Dinner options -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              晚餐
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-bowl-rice text-emerald-600"></i>
+                晚餐選擇（都在西面一帶）
+              </div>
+              <ol class="mt-2 list-decimal pl-4 space-y-1.5">
+                <li>
+                  <span>西面辣炒年糕一條街</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    242-7 부전제2동 Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/서면%20떡볶이%20골목"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP：서면 떡볶이 골목
+                  </a>
+                </li>
+                <li>
+                  <span>傳說中的豬肉湯飯 西面總店</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    242-1 부전제2동 Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/소문난돼지국밥%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>浦項豬肉湯飯（포항돼지국밥）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    27 Seomyeon-ro 68beon-gil, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/포항돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>水營本家 豬肉湯飯（수영본가 돼지국밥）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    25 Seomyeon-ro 68beon-gil, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/수영본가%20돼지국밥%20서면"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>山莊1988（梅花肉＋豬皮）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    97-6 Dongcheon-ro, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/산장1988%20서면본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>香港飯店 0410 - 白種元炸醬麵</span><br />
+                  <a href="https://map.naver.com/p/search/홍콩반점0410%20부산서면롯데점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Shopping / walking -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              晚上<br />逛街
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-emerald-600"></i>
+                西面逛街 & 咖啡街
+              </div>
+              <ol class="mt-2 list-decimal pl-4 space-y-1.5">
+                <li>
+                  <span>西面地下道街 - 西面Mall</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    지하 717 Jungang-daero, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/서면%20지하도상가"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP：서면 지하도상가
+                  </a>
+                </li>
+                <li>
+                  <span>釜山樂天百貨 釜山總店</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    772 Gaya-daero, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>OLIVE YOUNG 西面 Town 店</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    2F, 중앙대로 704-1, 동보미디어, 1F, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+                <li>
+                  <span>田浦咖啡街（Jeonpo Cafe Street）</span><br />
+                  <span class="text-[11px] text-slate-500">
+                    Dongcheon-ro 92, Busanjin District, Busan
+                  </span><br />
+                  <a href="https://map.naver.com/p/search/전포카페거리"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline text-[11px]">
+                    NAVER MAP 導航
+                  </a>
+                </li>
+              </ol>
+              <div class="mt-2 text-[11px] text-slate-500">
+                週五～週日中午 12:00～18:00，西面 NC 百貨到田浦咖啡街有 MAA 週末市集，可視日期順路逛。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Day 2 -->
+      <section id="day2" data-panel="day2" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 2・12/26（五）JRYN 醫美日
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              早午餐 → 11:00 JRYN 醫美 → 下午休息・西面室內逛街
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-rose-50 text-rose-700 text-[11px]">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            醫美重點日
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Morning / before clinic -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              上午
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-mug-saucer text-emerald-600"></i>
+                早餐／早午餐 & 前往診所
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                依皮膚狀況選擇附近簡單吃早餐，不要太油太辣，保留時間前往 JRYN。
+              </div>
+            </div>
+          </div>
+
+          <!-- JRYN clinic -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              11:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-hospital-user text-emerald-600"></i>
+                醫美預約：釜山 JRYN
+              </div>
+              <div class="mt-1">
+                11:00 至
+                <a href="https://map.naver.com/p/search/JRYN%20의원%20서면"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  JRYN 醫美（JRYN의원 서면）
+                </a>
+                報到，依預約內容進行治療。
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                記得主動告知：已做過的醫美項目、皮膚偏熟齡混合＋容易敏感，請醫師以「溫和控能量、以修復為主」調整。
+              </div>
+            </div>
+          </div>
+
+          <!-- Lunch / rest -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              13:00
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-utensils text-emerald-600"></i>
+                午餐 & 術後休息
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                在診所附近找清淡餐點（避免酒、太辣、太燙），餐後可直接回飯店或附近咖啡廳休息，讓皮膚降溫。
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft shopping -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-16 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              下午<br />～晚上
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-store text-emerald-600"></i>
+                西面室內逛街・咖啡廳
+              </div>
+              <div class="mt-1">
+                以室內為主，例如：
+              </div>
+              <ul class="mt-1 list-disc pl-4 space-y-1">
+                <li>
+                  西面地下街・西面Mall（
+                  <a href="https://map.naver.com/p/search/서면%20지하도상가"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+                <li>
+                  樂天百貨 釜山總店（
+                  <a href="https://map.naver.com/p/search/롯데백화점%20부산본점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+                <li>
+                  OLIVE YOUNG 西面 Town 店 補貨術後保養品（
+                  <a href="https://map.naver.com/p/search/올리브영%20서면타운점"
+                     target="_blank" rel="noopener noreferrer"
+                     class="text-emerald-700 underline">
+                    NAVER MAP
+                  </a>
+                  ）
+                </li>
+              </ul>
+              <div class="mt-2 text-[11px] text-slate-500">
+                若臉部泛紅明顯，就以「飯店休息＋ GS 買簡單餐」為主，逛街可以順延到 D3。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Day 3 -->
+      <section id="day3" data-panel="day3" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              Day 3・12/27（六）一日遊 & 直接前往機場
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              Agoda 一日遊 → 最後停留甘川洞文化村 → 直接搭計程車前往金海機場 → 桃園
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-sky-50 text-sky-700 text-[11px]">
+            <i class="fa-solid fa-train-subway"></i>
+            一日遊＋返台
+          </span>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Meet up -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              08:40<br />集合
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-people-group text-emerald-600"></i>
+                Agoda 一日遊集合
+              </div>
+              <div class="mt-1">
+                釜山精華景點一日遊｜海東龍宮寺+藍線公園海岸列車＆天空膠囊列車＋白淺灘文化村＋甘川洞文化村。。
+              </div>
+              <div class="mt-1">
+                上車地點：
+                <a href="https://map.naver.com/p/search/서면역%2012번%20출구"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  西面站 12 號出口
+                </a>
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                建議提前 10～15 分鐘到，避免在地鐵口找來找去。
+              </div>
+            </div>
+          </div>
+
+          <!-- Day tour running -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              09:00<br />～ 下午
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-mountain-sun text-emerald-600"></i>
+                一日遊行程進行中
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                依旅行社安排停靠幾個主要景點（實際順序以當日導遊說明為主），包含：
+              </div>
+              <ul class="mt-1 list-disc pl-4 space-y-1">
+                <li>海東龍宮寺</li>
+                <li>藍線公園 海岸列車 & 天空膠囊列車</li>
+                <li>白淺海岸村</li>
+                <li>甘川洞文化村（預計約 15:50 抵達，停留約 1 小時）</li>
+              </ul>
+              <div class="mt-2 text-[11px] text-slate-500">
+                建議攜帶：口罩、防曬、護唇膏、小條修復霜、折疊傘／帽子。  
+                若前一天醫美能量較高，這天記得多補防曬＋保濕。
+              </div>
+            </div>
+          </div>
+
+          <!-- Gamcheon -> Airport -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              約 16:50<br />甘川洞出發
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-taxi text-emerald-600"></i>
+                甘川洞文化村 → 金海國際機場
+              </div>
+              <div class="mt-1 text-slate-500 text-[11px] sm:text-xs">
+                一日遊在甘川洞文化村結束後，約 16:50 左右從甘川直接搭計程車前往
+                <a href="https://map.naver.com/p/search/김해국제공항"
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-emerald-700 underline">
+                  金海國際機場（國際線出發）
+                </a>
+                ，不再回西面飯店。
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                可請導遊協助與司機溝通：<br />
+                「김해국제공항 국제선 출발 가 주세요.（請到金海國際機場國際線出發）」  
+                車程約 20～30 分鐘，視當天交通而定。
+              </div>
+            </div>
+          </div>
+
+          <!-- Airport & return -->
+          <div class="flex gap-3 bg-white card p-3 sm:p-4">
+            <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
+              約 17:20<br />之後
+            </div>
+            <div class="flex-1 text-xs sm:text-sm">
+              <div class="font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-plane-departure text-emerald-600"></i>
+                金海機場 & 回程
+              </div>
+              <div class="mt-1">
+                抵達金海國際機場後，先找到「國際線出發」櫃檯，辦理登機與行李託運。
+              </div>
+              <div class="mt-1">
+                回程航班：臺灣虎航 IT607｜金海 21:00 → 桃園 T1 22:30
+              </div>
+              <div class="mt-1 text-[11px] text-slate-500">
+                辦完登機後，可在機場簡單用餐、補一次保濕＋護唇，之後回台就直接進入「術後修復保養」模式。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-6 mb-4 text-center text-[11px] text-slate-400 space-y-1">
+      <div>
+        釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
+      </div>
+      <div class="text-[11px] text-slate-400">
+        上排 TAB 可切換：行程 / GS 便利商店 / OLIVE YOUNG 術後友善小抄
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.panel');
+
+    function showPanel(name) {
+      panels.forEach(p => {
+        p.classList.toggle('hidden', p.dataset.panel !== name);
+      });
+    }
+
+    function setActiveTab(name) {
+      tabButtons.forEach(b => {
+        if (b.dataset.tab === name) {
+          b.classList.add('tab-active');
+        } else {
+          b.classList.remove('tab-active');
+        }
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = btn.dataset.tab;
+        if (!target) return;
+
+        // 有 JS 時，用單頁切換，不用真的捲動
+        e.preventDefault();
+        showPanel(target);
+        setActiveTab(target);
+
+        // 同時更新網址 hash（方便重開或分享）
+        if (history && history.replaceState) {
+          history.replaceState(null, '', '#' + target);
+        } else {
+          location.hash = target;
+        }
+      });
+    });
+
+    // 初始：看網址有沒有 hash，沒有就顯示 overview
+    const initialHash = window.location.hash ? window.location.hash.substring(1) : 'overview';
+    const validPanels = Array.from(panels).map(p => p.dataset.panel);
+    const initialPanel = validPanels.includes(initialHash) ? initialHash : 'overview';
+    showPanel(initialPanel);
+    setActiveTab(initialPanel);
+  </script>
+</body>
+</html>
