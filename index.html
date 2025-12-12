@@ -103,6 +103,11 @@
         <i class="fa-solid fa-list-check text-emerald-600"></i>
         總覽
       </a>
+      <a href="#money" data-tab="money"
+         class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
+        <i class="fa-solid fa-coins text-amber-500"></i>
+        $$
+      </a>
       <a href="#gs" data-tab="gs"
          class="tab-btn flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-medium text-slate-600 bg-white cursor-pointer">
         <i class="fa-solid fa-store text-emerald-600"></i>
@@ -341,6 +346,345 @@
         </div>
       </section>
 
+      <!-- 匯率 & 記帳 TAB -->
+      <section id="money" data-panel="money" class="panel hidden space-y-4 sm:space-y-5">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm sm:text-base font-semibold text-slate-800">
+              匯率 & 記帳小工具
+            </h2>
+            <p class="text-[11px] sm:text-xs text-slate-500">
+              匯率可以自己改，記帳用韓幣輸入，我幫你粗估成台幣。
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-50 text-amber-700 text-[11px]">
+            <i class="fa-solid fa-calculator"></i>
+            小幫手
+          </span>
+        </div>
+
+        <!-- 匯率換算 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-4 text-xs sm:text-sm">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-coins text-amber-500"></i>
+            匯率換算小工具
+          </h3>
+
+          <div class="border rounded-xl p-3 sm:p-4 bg-slate-50/70 space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] sm:text-xs text-slate-600">目前匯率（可自行修改）</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[13px] sm:text-sm">1 KRW ≈</span>
+              <input
+                id="rateInput"
+                type="number"
+                step="0.0001"
+                value="0.024"
+                class="w-24 px-2 py-1 border rounded-lg text-right text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              />
+              <span class="text-[13px] sm:text-sm">TWD</span>
+            </div>
+            <p class="text-[11px] text-slate-500">
+              若想更精準，可依出發前看到的匯率自行調整。這裡只是方便估算用。
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3">
+            <!-- KRW -> TWD -->
+            <div class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 space-y-2">
+              <div class="font-semibold text-slate-800 text-sm">
+                韓幣 → 台幣
+              </div>
+              <label class="block text-[11px] text-slate-500 mb-1">韓幣金額（KRW）</label>
+              <input
+                id="krwConvert"
+                type="number"
+                min="0"
+                step="10"
+                placeholder="例如 15000（晚餐）"
+                class="w-full px-2 py-1.5 border rounded-lg text-right text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              />
+              <div class="mt-1 text-[13px]">
+                約等於：
+                <span id="krwToTwd" class="font-semibold text-emerald-700">0</span>
+                <span>TWD</span>
+              </div>
+            </div>
+
+            <!-- TWD -> KRW -->
+            <div class="border rounded-xl p-3 sm:p-4 bg-slate-50/60 space-y-2">
+              <div class="font-semibold text-slate-800 text-sm">
+                台幣 → 韓幣
+              </div>
+              <label class="block text-[11px] text-slate-500 mb-1">台幣金額（TWD）</label>
+              <input
+                id="twdConvert"
+                type="number"
+                min="0"
+                step="10"
+                placeholder="例如 1000（預算）"
+                class="w-full px-2 py-1.5 border rounded-lg text-right text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              />
+              <div class="mt-1 text-[13px]">
+                約等於：
+                <span id="twdToKrw" class="font-semibold text-emerald-700">0</span>
+                <span>KRW</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 記帳小表 -->
+        <section class="bg-white card p-4 sm:p-5 space-y-4 text-xs sm:text-sm">
+          <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800">
+            <i class="fa-solid fa-pen-to-square text-emerald-600"></i>
+            三天行程記帳小表（輸入韓幣，系統幫你估台幣）
+          </h3>
+
+          <p class="text-[11px] text-slate-500">
+            右欄輸入韓幣金額（KRW），下方會自動計算當天 & 三天合計的台幣估算金額。
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-3">
+            <!-- D1 -->
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-2">
+              <div class="font-semibold text-slate-800 text-sm mb-1">
+                D1｜12/25 抵達日
+              </div>
+              <!-- Rows -->
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：機場 → 西面 計程車"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d1"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：晚餐 豬肉湯飯"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d1"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：地下街小物"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d1"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="其他支出"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d1"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                今日合計：
+                <span id="d1-krw-total" class="font-semibold">0</span> KRW
+                ≈
+                <span id="d1-twd-total" class="font-semibold text-emerald-700">0</span> TWD
+              </div>
+            </div>
+
+            <!-- D2 -->
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-2">
+              <div class="font-semibold text-slate-800 text-sm mb-1">
+                D2｜12/26 醫美日
+              </div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：早午餐"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d2"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：醫美後午餐"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d2"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：OLIVE YOUNG 術後保養"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d2"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="其他支出"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d2"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                今日合計：
+                <span id="d2-krw-total" class="font-semibold">0</span> KRW
+                ≈
+                <span id="d2-twd-total" class="font-semibold text-emerald-700">0</span> TWD
+              </div>
+            </div>
+
+            <!-- D3 -->
+            <div class="border rounded-xl p-3 bg-slate-50/70 space-y-2">
+              <div class="font-semibold text-slate-800 text-sm mb-1">
+                D3｜12/27 一日遊＋返台
+              </div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：一日遊午餐"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d3"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：甘川洞紀念品 / 小吃"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d3"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="例如：甘川洞 → 機場 計程車"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d3"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+                <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+                  <input
+                    type="text"
+                    placeholder="其他支出"
+                    class="flex-1 px-2 py-1 border rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                  />
+                  <input
+                    type="number"
+                    min="0"
+                    step="10"
+                    data-day="d3"
+                    class="w-24 px-2 py-1 border rounded-lg text-right expense-krw focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    placeholder="KRW"
+                  />
+                </div>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">
+                今日合計：
+                <span id="d3-krw-total" class="font-semibold">0</span> KRW
+                ≈
+                <span id="d3-twd-total" class="font-semibold text-emerald-700">0</span> TWD
+              </div>
+            </div>
+          </div>
+
+          <!-- 三天合計 -->
+          <div class="mt-3 border rounded-xl p-3 sm:p-4 bg-emerald-50 text-[11px] sm:text-xs text-slate-700">
+            三天合計預估：約
+            <span id="all-krw-total" class="font-semibold">0</span> KRW
+            ≈
+            <span id="all-twd-total" class="font-semibold text-emerald-800">0</span> TWD
+          </div>
+        </section>
+      </section>
+
       <!-- GS 便利商店 TAB -->
       <section id="gs" data-panel="gs" class="panel hidden space-y-4 sm:space-y-5">
         <div class="flex items-center justify-between gap-2">
@@ -519,7 +863,7 @@
           </span>
         </div>
 
-        <!-- 術後主力商品（純文字，無縮圖） -->
+        <!-- 術後主力商品 -->
         <section class="bg-white card p-4 sm:p-5 space-y-4">
           <h3 class="flex items-center gap-2 text-sm font-semibold text-slate-800 mb-1">
             <i class="fa-solid fa-star text-amber-400"></i>
@@ -1053,7 +1397,7 @@
           <!-- Gamcheon -> Airport -->
           <div class="flex gap-3 bg-white card p-3 sm:p-4">
             <div class="w-20 text-[11px] sm:text-xs font-semibold text-emerald-700">
-              約 16:50<br />甘川洞出發
+              約 16:50<br />甘川出發
             </div>
             <div class="flex-1 text-xs sm:text-sm">
               <div class="font-semibold flex items-center gap-2">
@@ -1070,7 +1414,7 @@
                 ，不再回西面飯店。
               </div>
               <div class="mt-1 text-[11px] text-slate-500">
-                可請導遊協助與司機溝通：<br />
+                可請導遊協助與司機緩慢說明：<br />
                 「김해국제공항 국제선 출발 가 주세요.（請到金海國際機場國際線出發）」  
                 車程約 20～30 分鐘，視當天交通而定。
               </div>
@@ -1107,7 +1451,7 @@
         釜山醫美之旅 Planner · 為 Vicky 客製 · 點地點即可開啟 NAVER MAP 導航
       </div>
       <div class="text-[11px] text-slate-400">
-        上排 TAB 可切換：行程 / GS 便利商店 / OLIVE YOUNG 術後友善小抄
+        上排 TAB 可切換：行程 / 匯率 & 記帳 / GS 便利商店 / OLIVE YOUNG 術後友善小抄
       </div>
     </footer>
   </div>
@@ -1154,6 +1498,101 @@
     const initialPanel = validPanels.includes(initialHash) ? initialHash : 'overview';
     showPanel(initialPanel);
     setActiveTab(initialPanel);
+
+    // ===== 匯率 & 記帳邏輯 =====
+    const rateInput = document.getElementById('rateInput');
+    const krwConvertInput = document.getElementById('krwConvert');
+    const twdConvertInput = document.getElementById('twdConvert');
+    const krwToTwdSpan = document.getElementById('krwToTwd');
+    const twdToKrwSpan = document.getElementById('twdToKrw');
+
+    function getRate() {
+      if (!rateInput) return 0;
+      const r = parseFloat(rateInput.value);
+      return isNaN(r) ? 0 : r;
+    }
+
+    function formatNumber(n) {
+      if (!n || isNaN(n)) return '0';
+      return Math.round(n).toLocaleString('en-US');
+    }
+
+    function updateConverterFromKrw() {
+      if (!krwConvertInput || !krwToTwdSpan) return;
+      const rate = getRate();
+      const krw = parseFloat(krwConvertInput.value);
+      if (isNaN(krw) || !rate) {
+        krwToTwdSpan.textContent = '0';
+        return;
+      }
+      const twd = krw * rate;
+      krwToTwdSpan.textContent = formatNumber(twd);
+    }
+
+    function updateConverterFromTwd() {
+      if (!twdConvertInput || !twdToKrwSpan) return;
+      const rate = getRate();
+      const twd = parseFloat(twdConvertInput.value);
+      if (isNaN(twd) || !rate) {
+        twdToKrwSpan.textContent = '0';
+        return;
+      }
+      const krw = twd / rate;
+      twdToKrwSpan.textContent = formatNumber(krw);
+    }
+
+    function updateTotals() {
+      if (!rateInput) return;
+      const rate = getRate();
+      const days = ['d1', 'd2', 'd3'];
+      let totalKrwAll = 0;
+
+      days.forEach(day => {
+        let dayKrw = 0;
+        document.querySelectorAll('.expense-krw[data-day="' + day + '"]').forEach(inp => {
+          const v = parseFloat(inp.value);
+          if (!isNaN(v)) dayKrw += v;
+        });
+
+        totalKrwAll += dayKrw;
+
+        const dayKrwSpan = document.getElementById(day + '-krw-total');
+        const dayTwdSpan = document.getElementById(day + '-twd-total');
+        if (dayKrwSpan) dayKrwSpan.textContent = dayKrw ? dayKrw.toLocaleString('en-US') : '0';
+
+        const dayTwd = dayKrw * rate;
+        if (dayTwdSpan) dayTwdSpan.textContent = dayTwd ? formatNumber(dayTwd) : '0';
+      });
+
+      const allKrwSpan = document.getElementById('all-krw-total');
+      const allTwdSpan = document.getElementById('all-twd-total');
+      if (allKrwSpan) allKrwSpan.textContent = totalKrwAll ? totalKrwAll.toLocaleString('en-US') : '0';
+      const allTwd = totalKrwAll * rate;
+      if (allTwdSpan) allTwdSpan.textContent = allTwd ? formatNumber(allTwd) : '0';
+    }
+
+    if (rateInput) {
+      rateInput.addEventListener('input', () => {
+        updateConverterFromKrw();
+        updateConverterFromTwd();
+        updateTotals();
+      });
+    }
+    if (krwConvertInput) {
+      krwConvertInput.addEventListener('input', updateConverterFromKrw);
+    }
+    if (twdConvertInput) {
+      twdConvertInput.addEventListener('input', updateConverterFromTwd);
+    }
+
+    document.querySelectorAll('.expense-krw').forEach(inp => {
+      inp.addEventListener('input', updateTotals);
+    });
+
+    // 初始化計算
+    updateConverterFromKrw();
+    updateConverterFromTwd();
+    updateTotals();
   </script>
 </body>
 </html>
